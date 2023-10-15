@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.amber.bookmydoctor">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_new_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BookMyDoctor">
+
+        <!-- Set SplashActivity as the launcher activity -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Define MainActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <!-- Intent filter for MainActivity if needed -->
+        </activity>
+
+        <!-- Define NextPageActivity -->
+        <activity
+            android:name=".NextPageActivity"
+            android:exported="true">
+            <!-- Intent filter for NextPageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true">
+            <!-- Intent filter for RegisterPageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".PhonePageActivity"
+            android:exported="true">
+            <!-- Intent filter for PhonePageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".ForgotPageActivity"
+            android:exported="true">
+            <!-- Intent filter for PhonePageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".ForgotOTPActivity"
+            android:exported="true">
+            <!-- Intent filter for PhonePageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".RecoveyPasswordActivity"
+            android:exported="true">
+            <!-- Intent filter for PhonePageActivity if needed -->
+        </activity>
+
+        <!-- Add other activities, services, and content providers here -->
+        <activity
+            android:name=".DashPageActivity"
+            android:exported="true">
+            <!-- Intent filter for DashPageActivity if needed -->
+        </activity>
+
+
+    </application>
+
+</manifest>

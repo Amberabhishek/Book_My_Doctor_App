@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Book My Doctor</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">open</string>
+
+</resources>

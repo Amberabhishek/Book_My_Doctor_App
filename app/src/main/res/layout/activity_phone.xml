@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/phone_back">
+
+
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#30ffffff"
+        android:hint="Enter mobile number"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="20dp"
+        android:layout_marginTop="145dp"
+        android:inputType="number"
+        android:maxLength="10"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/get_otp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="@color/white"
+        android:textColor="#43C3BB"
+        android:text="Get OTP"
+        android:textSize="20dp"
+        />
+
+
+</RelativeLayout>
+

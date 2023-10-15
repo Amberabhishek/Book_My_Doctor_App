@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashPageActivity">
+
+    <!-- Title Bar (Toolbar) -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Home"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="#ffffff"
+            android:background="#43C3BB"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- Navigation View -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/navigation_menu"/>
+
+    <!-- Main Content -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Search doctors.."
+            android:textColorHint="#9F9E9E"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:layout_marginTop="95dp"
+            android:inputType="text"
+            android:elevation="8dp"
+            android:drawableRight="@drawable/ic_search_icon"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search"
+            android:scrollbars="none">
+
+            <!-- Add the content you want to scroll horizontally here -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+
+                <!-- Add your horizontal content views here -->
+                <Button
+                    android:id="@+id/heart"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/lungs"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+                <Button
+                    android:id="@+id/bone"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/lung"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+
+                <Button
+                    android:id="@+id/skin"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/teeth"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/hi"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/ji"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/eye"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/ear"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/nose"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/cugh"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/soft"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/freez"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/leg"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/legs"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <Button
+                    android:id="@+id/hand"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:text="Get Started"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/scroll_activity"
+                    android:elevation="8dp"/>
+
+                <!-- Add more items as needed -->
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

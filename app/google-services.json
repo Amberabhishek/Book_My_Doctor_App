@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675953248938",
+    "project_id": "book-my-doctor-db7a3",
+    "storage_bucket": "book-my-doctor-db7a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675953248938:android:f7d44c52aceb4992ed5ed3",
+        "android_client_info": {
+          "package_name": "com.amber.bookmydoctor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATf6PizQu5CHLFc5ObkI1_DE8HiGE-Jfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
