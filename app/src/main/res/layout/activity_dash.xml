@@ -18,7 +18,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             app:title="Home"
             android:minHeight="?attr/actionBarSize"
             app:titleTextColor="#ffffff"
@@ -44,24 +44,36 @@
         <EditText
             android:id="@+id/search"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:background="@drawable/edittext_background"
             android:hint="Search doctors.."
             android:textColorHint="#9F9E9E"
             android:textColor="@android:color/black"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:padding="10dp"
-            android:layout_marginTop="95dp"
+            android:layout_marginTop="80dp"
             android:inputType="text"
             android:elevation="8dp"
             android:drawableRight="@drawable/ic_search_icon"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Doctor Speciality"
+            android:layout_marginTop="142dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:layout_marginRight="12dp"/>
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/search"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            android:layout_marginTop="33dp">
 
             <!-- Add the content you want to scroll horizontally here -->
             <LinearLayout
@@ -72,51 +84,51 @@
                 <!-- Add your horizontal content views here -->
                 <Button
                     android:id="@+id/heart"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/lungs"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
                 <Button
                     android:id="@+id/bone"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/lung"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
@@ -124,169 +136,169 @@
 
                 <Button
                     android:id="@+id/skin"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/teeth"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/hi"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/ji"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/eye"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/ear"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/nose"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/cugh"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/soft"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/freez"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/leg"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/legs"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
 
                 <Button
                     android:id="@+id/hand"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/scroll_activity"
                     android:elevation="8dp"/>
@@ -294,6 +306,91 @@
                 <!-- Add more items as needed -->
             </LinearLayout>
         </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Appointment"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:src="@drawable/new_homes"
+            android:layout_below="@+id/upcoming"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"/>
+
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:src="@drawable/bottom_nav"
+            android:layout_alignParentBottom="true"
+            android:background="#FFFFFF"
+            android:elevation="10dp"
+            />
+
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home_icon"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="10dp"
+                 />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_appointment_icon"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="91dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="10dp"
+                />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_add_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="164dp"
+            android:layout_marginBottom="7dp"
+            android:elevation="10dp"
+            />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_alarm_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="239dp"
+            android:layout_marginBottom="7dp"
+            android:elevation="10dp"
+            />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_person_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="309dp"
+            android:layout_marginBottom="7dp"
+            android:elevation="10dp"
+            />
+
 
 
     </RelativeLayout>
