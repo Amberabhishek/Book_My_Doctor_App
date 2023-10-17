@@ -4,6 +4,8 @@
         <!-- Customize the Toolbar -->
         <item name="android:background">#FF5722</item> <!-- Change the background color -->
         <item name="titleTextColor">#FFFFFF</item> <!-- Change the title text color -->
+
+
     </style>
 
     <!-- Define other styles here -->
