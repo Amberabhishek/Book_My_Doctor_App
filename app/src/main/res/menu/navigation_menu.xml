@@ -20,9 +20,9 @@
         android:title="    More" />
 
     <item
-        android:id="@+id/nav_alarm"
-        android:icon="@drawable/ic_alarm_icon"
-        android:title="    Alarm" />
+        android:id="@+id/nav_shop"
+        android:icon="@drawable/ic_shop_icon"
+        android:title="    Shop" />
 
     <item
         android:id="@+id/profile"
