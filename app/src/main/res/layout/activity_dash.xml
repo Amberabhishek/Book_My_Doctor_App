@@ -53,7 +53,7 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/navigation_menu"/>
+        app:menu="@menu/navigation_top"/>
 
     <!-- Main Content -->
     <RelativeLayout
@@ -101,7 +101,7 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal">
 
-                <!-- Add your horizontal content views here -->
+
                 <Button
                     android:id="@+id/heart"
                     android:layout_width="75dp"
@@ -153,7 +153,6 @@
                     android:text="Get Started"
                     android:textSize="22sp"
                     android:textStyle="bold" />
-
 
                 <Button
                     android:id="@+id/skin"
@@ -394,7 +393,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

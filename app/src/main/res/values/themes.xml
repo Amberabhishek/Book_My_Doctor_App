@@ -3,7 +3,6 @@
     <style name="Base.Theme.BookMyDoctor" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">#01B5A4</item>
-
     </style>
 
     <style name="Theme.BookMyDoctor" parent="Base.Theme.BookMyDoctor" />
