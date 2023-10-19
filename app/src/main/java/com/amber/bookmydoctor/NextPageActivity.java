@@ -10,15 +10,21 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.amber.bookmydoctor.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NextPageActivity extends Activity {
+
+
+    HomeFragment homeFragment = new HomeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
 
         Button getStartedButton = findViewById(R.id.register);
         getStartedButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +56,7 @@ public class NextPageActivity extends Activity {
                 startActivity(dashIntent);
             }
         });
+
 
 
     }
