@@ -110,7 +110,7 @@
         android:layout_alignParentBottom="true">
 
         <ImageView
-            android:id="@+id/button_gmail"
+            android:id="@+id/google_btn"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
