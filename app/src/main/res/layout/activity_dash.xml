@@ -17,24 +17,6 @@
         android:layout_height="match_parent">
 
 
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginTop="5dp"
-            android:paddingEnd="16dp">
-
-            <!-- Add an ImageView for the circular image -->
-            <ImageView
-                android:id="@+id/circular_image"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:background="@drawable/circular_background"/>
-        </LinearLayout>
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Navigation View -->
@@ -90,11 +72,12 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/first_card"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     app:cardCornerRadius="50dp"
                     android:elevation="10dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="19dp"
                     android:layout_marginLeft="12dp">
 
                     <LinearLayout

@@ -13,8 +13,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.helper.widget.Carousel;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashPageActivity extends AppCompatActivity {
 
@@ -26,7 +30,6 @@ public class DashPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
-
 
 
         // Get the DrawerLayout and ActionBarDrawerToggle
@@ -59,7 +62,50 @@ public class DashPageActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
 
+        CardView cardView = findViewById(R.id.first_card); // Replace with your CardView's ID
 
+        // Set an OnClickListener for the CardView
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Define the action to perform when the CardView is clicked
+                // For example, navigate to another page (activity)
+                Intent intent = new Intent(DashPageActivity.this, CardActivity.class); //
+                startActivity(intent);
+            }
+        });
+
+
+        CardView imageCard = findViewById(R.id.imageCard);
+
+        imageCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashPageActivity.this, BloodBankActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView videoCard = findViewById(R.id.videoCard);
+
+        videoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(DashPageActivity.this, LabTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView audioCard = findViewById(R.id.audioCard);
+
+        audioCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashPageActivity.this, MedicineActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

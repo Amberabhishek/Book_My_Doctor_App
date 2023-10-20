@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Define the intent to start the new activity here
-                Intent intent = new Intent(MainActivity.this, NextPageActivity.class);
+                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
                 startActivity(intent);
             }
         });

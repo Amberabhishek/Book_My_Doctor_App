@@ -24,61 +24,37 @@
             </intent-filter>
         </activity>
 
-        <!-- Define MainActivity -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <!-- Intent filter for MainActivity if needed -->
-        </activity>
 
-        <!-- Define NextPageActivity -->
-        <activity
-            android:name=".NextPageActivity"
-            android:exported="true">
-            <!-- Intent filter for NextPageActivity if needed -->
-        </activity>
+        <activity android:name=".MainActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true">
-            <!-- Intent filter for RegisterPageActivity if needed -->
-        </activity>
+        <activity android:name=".SelectActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".PhonePageActivity"
-            android:exported="true">
-            <!-- Intent filter for PhonePageActivity if needed -->
-        </activity>
+        <activity android:name=".DoctorDashActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".ForgotPageActivity"
-            android:exported="true">
-            <!-- Intent filter for PhonePageActivity if needed -->
-        </activity>
+        <activity android:name=".NextPageActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".ForgotOTPActivity"
-            android:exported="true">
-            <!-- Intent filter for PhonePageActivity if needed -->
-        </activity>
+        <activity android:name=".RegisterActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".RecoveyPasswordActivity"
-            android:exported="true">
-            <!-- Intent filter for PhonePageActivity if needed -->
-        </activity>
+        <activity android:name=".PhonePageActivity" />
 
-        <!-- Add other activities, services, and content providers here -->
-        <activity
-            android:name=".DashPageActivity"
-            android:exported="true">
-            <!-- Intent filter for DashPageActivity if needed -->
-        </activity>
+        <activity android:name=".ForgotPageActivity" />
+
+        <activity android:name=".ForgotOTPActivity" />
+
+        <activity android:name=".RecoveyPasswordActivity" />
+
+        <activity android:name=".DashPageActivity" />
+
+        <activity android:name=".CardActivity" />
+
+        <activity android:name=".BloodBankActivity" />
+
+        <activity android:name=".LabTestActivity" />
+
+        <activity android:name=".MedicineActivity" />
+
+        <activity android:name=".BloodBankPageActivity" />
+
 
 
     </application>

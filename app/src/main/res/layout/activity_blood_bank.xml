@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/design_two"
+        />
+
+    <ImageView
+        android:id="@+id/image_boy_two"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:src="@drawable/boy_two"
+        />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Donate your blood and save a life."
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="410dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click here 👉"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp"
+        android:layout_marginLeft="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/red_butn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/red_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="50dp"
+        />
+
+
+
+
+</RelativeLayout>
