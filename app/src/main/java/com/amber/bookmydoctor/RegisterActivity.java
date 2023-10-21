@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText emailEditText, passwordEditText, confirmPasswordEditText;
     Button createAccountBtn;
-    ProgressBar progressBar;
+
     TextView loginBtnTextView;
 
     @Override
@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password_edit_text);
         confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text);
         createAccountBtn = findViewById(R.id.create_account_btn);
-        progressBar = findViewById(R.id.progress_bar);
+
         loginBtnTextView = findViewById(R.id.login_text_view_btn);
 
         createAccountBtn.setOnClickListener(v -> createAccount());
@@ -116,13 +116,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     void createAccountInFirebase(String email, String password) {
-        changeInProgress(true);
+
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        changeInProgress(false);
+
                         if (task.isSuccessful()) {
                             // Creating account is done
                             Toast.makeText(RegisterActivity.this, "Successfully create account", Toast.LENGTH_SHORT).show();
@@ -134,21 +134,14 @@ public class RegisterActivity extends AppCompatActivity {
                             // Failure
                             Toast.makeText(RegisterActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
+
                         }
                     }
                 }
         );
     }
 
-    void changeInProgress(boolean inProgress) {
-        if (inProgress) {
-            progressBar.setVisibility(View.VISIBLE);
-            createAccountBtn.setVisibility(View.GONE);
-        } else {
-            progressBar.setVisibility(View.GONE);
-            createAccountBtn.setVisibility(View.VISIBLE);
-        }
-    }
+
 
     boolean validateData(String email, String password, String confirmPassword) {
         // Validate the data that are input by the user.

@@ -65,11 +65,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number or Email"
+                android:text="Email Id"
                 android:alpha="0.7"
                 android:textStyle="bold"/>
 
             <EditText
+                android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -83,13 +84,27 @@
                 android:layout_height="wrap_content"
                 android:text="Password"
                 android:alpha="0.7"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_text_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:drawableEnd="@drawable/password"/>
+                app:boxBackgroundMode="none"
+                app:endIconMode="password_toggle"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="24dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
