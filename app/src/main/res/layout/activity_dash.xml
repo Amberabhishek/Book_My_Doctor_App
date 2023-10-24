@@ -11,15 +11,10 @@
 
 
     <!-- Title Bar (Toolbar) -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- Navigation View -->
+    <!-- Navigation View Top -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -27,7 +22,9 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/navigation_top"/>
+        app:menu="@menu/navigation_top"
+        />
+
 
 
     <!-- Main Content -->
@@ -430,6 +427,7 @@
                     android:src="@drawable/boy"/>
 
         </ViewFlipper>
+
 
 
 
@@ -985,30 +983,31 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent">
 
-           <LinearLayout
+
+
+           <androidx.appcompat.widget.Toolbar
+               android:id="@+id/toolbar"
                android:layout_width="match_parent"
-               android:layout_height="70dp"
+               android:layout_height="60dp"
+               android:minHeight="?attr/actionBarSize"
+               app:titleTextColor="#000000"
                android:background="#F1FFFC"
-               android:paddingTop="16dp"
                tools:ignore="MissingConstraints">
 
-               <EditText
-                   android:id="@+id/search"
-                   android:layout_width="match_parent"
-                   android:layout_height="45dp"
-                   android:layout_marginHorizontal="10dp"
-                   android:background="@drawable/edittext_background"
-                   android:drawableRight="@drawable/ic_search_icon"
+               <androidx.appcompat.widget.SearchView
+                   android:id="@+id/search_view"
+                   android:layout_width="292dp"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   app:queryHint="Search Doctor's"
                    android:elevation="3dp"
-                   android:hint="Search doctors.."
-                   android:inputType="text"
-                   android:padding="10dp"
-                   android:textColor="@android:color/black"
-                   android:textColorHint="#9F9E9E"
-                   android:textSize="15sp"
-                   tools:ignore="MissingConstraints" />
+                   style="styles/SearchViewWithMenuIcon" />
 
-           </LinearLayout>
+           </androidx.appcompat.widget.Toolbar>
+
+
+
+
 
            <com.google.android.material.bottomnavigation.BottomNavigationView
                android:id="@+id/bottomNavigationView"
@@ -1032,6 +1031,9 @@
              android:text="LogOut"
              android:textStyle="bold"
              android:layout_gravity="center"/>
+
+
+
 
 
    </FrameLayout>

@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -112,10 +113,15 @@ public class RegisterActivity extends AppCompatActivity {
         if (!isValidated) {
             return;
         }
+
+
         createAccountInFirebase(email, password);
+
     }
 
+
     void createAccountInFirebase(String email, String password) {
+
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this,
@@ -124,23 +130,30 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            // Creating account is done
-                            Toast.makeText(RegisterActivity.this, "Successfully create account", Toast.LENGTH_SHORT).show();
-
-                            firebaseAuth.getCurrentUser().sendEmailVerification();
-                            firebaseAuth.signOut();
-                            finish();
+                            // User created successfully, but the email is unverified
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> emailVerificationTask) {
+                                    if (emailVerificationTask.isSuccessful()) {
+                                        Toast.makeText(RegisterActivity.this, "A verification email has been sent to your email address.", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(RegisterActivity.this, EmailVerificationActivity.class);
+                                        intent.putExtra("email",email);
+                                        intent.putExtra("password", password);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(RegisterActivity.this, "Failed to send a verification email.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         } else {
-                            // Failure
+                            // Registration failed
                             Toast.makeText(RegisterActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-
-
                         }
                     }
                 }
         );
     }
-
 
 
     boolean validateData(String email, String password, String confirmPassword) {

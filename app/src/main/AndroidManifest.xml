@@ -25,13 +25,20 @@
         </activity>
 
 
+        <activity
+            android:name="com.amber.bookmydoctor.EmailVerificationActivity">
+            <!-- Other configuration attributes -->
+        </activity>
+
+
+
         <activity android:name=".MainActivity" />
 
-        <activity android:name=".SelectActivity" />
+        <activity android:name=".GetStartedActivity" />
 
         <activity android:name=".DoctorDashActivity" />
 
-        <activity android:name=".NextPageActivity" />
+        <activity android:name=".LoginPageActivity" />
 
         <activity android:name=".RegisterActivity" />
 
@@ -56,6 +63,14 @@
         <activity android:name=".BloodBankPageActivity" />
 
         <activity android:name=".GmailPageActivity" />
+
+        <activity android:name=".EmailVerificationActivity"
+
+            />
+
+        >
+
+
 
 
 

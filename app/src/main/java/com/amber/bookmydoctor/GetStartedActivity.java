@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class SelectActivity extends AppCompatActivity {
+public class GetStartedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,9 @@ public class SelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an intent to open the SelectActivity
-                Intent intent = new Intent(SelectActivity.this, NextPageActivity.class);
+                Intent intent = new Intent(GetStartedActivity.this, LoginPageActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -31,8 +32,9 @@ public class SelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an intent to open the DoctorDetailActivity (or the desired activity)
-                Intent intent = new Intent(SelectActivity.this, DoctorDashActivity.class);
+                Intent intent = new Intent(GetStartedActivity.this, DoctorDashActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -1,6 +1,5 @@
 package com.amber.bookmydoctor;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,17 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import android.widget.Toast;
 
-public class NextPageActivity extends Activity {
+public class LoginPageActivity extends Activity {
 
     HomeFragment homeFragment = new HomeFragment();
     EditText emailEditText, passwordEditText;
@@ -39,7 +35,7 @@ public class NextPageActivity extends Activity {
 
         if (isLoggedIn) {
             // User is already logged in, so navigate to the dashboard
-            Intent intent = new Intent(NextPageActivity.this, DashPageActivity.class);
+            Intent intent = new Intent(LoginPageActivity.this, DashPageActivity.class);
             startActivity(intent);
             finish(); // Close the current activity
         } else {
@@ -52,7 +48,7 @@ public class NextPageActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Define the intent to start the new activity here
-                Intent intent = new Intent(NextPageActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginPageActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,7 +59,7 @@ public class NextPageActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Define the intent to start the new activity for password recovery here
-                Intent passwordRecoveryIntent = new Intent(NextPageActivity.this, ForgotPageActivity.class);
+                Intent passwordRecoveryIntent = new Intent(LoginPageActivity.this, ForgotPageActivity.class);
                 startActivity(passwordRecoveryIntent);
             }
         });
@@ -87,7 +83,7 @@ public class NextPageActivity extends Activity {
         // Validate email and password
         if (email.isEmpty() || password.isEmpty()) {
             // Email or password is empty, display an error message
-            Toast.makeText(NextPageActivity.this, "Please enter your email and password.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginPageActivity.this, "Please enter your email and password.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -106,14 +102,14 @@ public class NextPageActivity extends Activity {
                             editor.apply();
 
                             // Login successful, navigate to the next activity
-                            Intent intent = new Intent(NextPageActivity.this, DashPageActivity.class);
+                            Intent intent = new Intent(LoginPageActivity.this, DashPageActivity.class);
                             startActivity(intent);
                             finish(); // Close the login activity
                             // Show a toast message for successful login
-                            Toast.makeText(NextPageActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPageActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
                         } else {
                             // Login failed, display an error message
-                            Toast.makeText(NextPageActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPageActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
