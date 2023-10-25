@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 public class LoginPageActivity extends Activity {
 
-    HomeFragment homeFragment = new HomeFragment();
     EditText emailEditText, passwordEditText;
     Button loginButton;
 

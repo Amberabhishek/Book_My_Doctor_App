@@ -25,12 +25,6 @@
         </activity>
 
 
-        <activity
-            android:name="com.amber.bookmydoctor.EmailVerificationActivity">
-            <!-- Other configuration attributes -->
-        </activity>
-
-
 
         <activity android:name=".MainActivity" />
 
@@ -64,9 +58,7 @@
 
         <activity android:name=".GmailPageActivity" />
 
-        <activity android:name=".EmailVerificationActivity"
-
-            />
+        <activity android:name=".EmailVerificationActivity" />
 
         >
 

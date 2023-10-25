@@ -28,1015 +28,1012 @@
 
 
     <!-- Main Content -->
-   <FrameLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-        <TextView
-            android:id="@+id/special"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="12dp"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:text="Doctor Speciality"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/special"
-            android:scrollbars="none">
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/first_card"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="19dp"
-                    android:layout_marginLeft="12dp">
+
+                <TextView
+                    android:id="@+id/special"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginRight="12dp"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    android:text="Doctor Speciality"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/special"
+                    android:scrollbars="none">
+
 
                     <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:orientation="horizontal">
 
-                        <ImageView
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/first_card"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="19dp"
+                            android:layout_marginLeft="12dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+                        </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:src="@drawable/people"/>
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <!-- Add more cards as needed -->
 
                     </LinearLayout>
+                </HorizontalScrollView>
 
+                <TextView
+                    android:id="@+id/upcoming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="214dp"
+                    android:text="Upcoming Appointment"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- Add more cards as needed -->
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/upcoming"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="214dp"
-            android:text="Upcoming Appointment"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="145dp"
-            android:layout_below="@+id/upcoming">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card"
-                android:layout_width="match_parent"
-                android:layout_height="122dp"
-                app:cardCornerRadius="5dp"
-                android:elevation="12dp"
-                android:layout_marginTop="19dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                >
 
                 <LinearLayout
-                    android:id="@+id/card_image"
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginVertical="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/grid_color">
+                    android:layout_height="145dp"
+                    android:layout_below="@+id/upcoming">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/girl" />
-
-                    <TextView
-                        android:id="@+id/doctor_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dr. Neena Singh"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card"
+                        android:layout_width="match_parent"
+                        android:layout_height="122dp"
+                        app:cardCornerRadius="5dp"
+                        android:elevation="12dp"
+                        android:layout_marginTop="19dp"
                         android:layout_marginLeft="12dp"
-                        android:layout_marginTop="12dp"
-                        />
+                        android:layout_marginRight="12dp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/card_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/grid_color">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/girl" />
+
+                            <TextView
+                                android:id="@+id/doctor_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dr. Neena Singh"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="Oct 10, 2023"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_appointment_icon"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="150dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="05:00 PM"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_clock_icon"/>
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="20dp">
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="Oct 10, 2023"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_appointment_icon"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="150dp">
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="05:00 PM"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_clock_icon"/>
-
-                </RelativeLayout>
 
 
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-
-
-        <ViewFlipper
-            android:id="@+id/flipper"
-            android:layout_below="@+id/upcoming"
-            android:layout_marginTop="150dp"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:flipInterval="3000"
-            android:autoStart="true"
-            android:inAnimation="@android:anim/slide_in_left"
-            android:outAnimation="@android:anim/slide_out_right">
-
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/girl"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/home_page"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/boy"/>
-
-        </ViewFlipper>
-
-
-
-
-        <LinearLayout
-            android:id="@+id/bottom_card"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:layout_below="@+id/flipper"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:paddingBottom="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp">
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/imageCard"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="bottom"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/blood"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Blood Bank"
-
-                        android:textAlignment="center"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/videoCard"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="bottom"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="5dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/injection"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lab Tests"
-                        android:textAlignment="center"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/audioCard"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="bottom"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/medic"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Medicine"
-                        android:textAlignment="center"
-                        android:textStyle="bold"/>
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-
-        <LinearLayout
-
-            android:id="@+id/bottom_card2"
-            android:layout_width="match_parent"
-            android:layout_height="145dp"
-            android:layout_below="@+id/bottom_card">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/down"
-                android:layout_width="match_parent"
-                android:layout_height="122dp"
-                app:cardCornerRadius="5dp"
-                android:elevation="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/down_image"
+                <ViewFlipper
+                    android:id="@+id/flipper"
+                    android:layout_below="@+id/upcoming"
+                    android:layout_marginTop="150dp"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:layout_marginVertical="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/grid_color">
+                    android:flipInterval="3000"
+                    android:autoStart="true"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/girl" />
 
-                    <TextView
-                        android:id="@+id/docto_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dr. Neena Singh"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="12dp"
-                        />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="20dp">
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="Oct 10, 2023"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_appointment_icon"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="150dp">
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="05:00 PM"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_clock_icon"/>
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-
-        <HorizontalScrollView
-            android:id="@+id/mycard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bottom_card2"
-            android:scrollbars="none">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:orientation="horizontal">
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="12dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="50dp"
-                    android:elevation="10dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginLeft="18dp">
-
-                    <LinearLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@drawable/people"/>
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- Add more cards as needed -->
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-
-        <LinearLayout
-
-            android:id="@+id/last"
-            android:layout_width="match_parent"
-            android:layout_height="145dp"
-            android:layout_below="@+id/mycard">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/down2"
-                android:layout_width="match_parent"
-                android:layout_height="122dp"
-                app:cardCornerRadius="5dp"
-                android:elevation="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/down_image2"
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginVertical="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/grid_color">
-
-
-                    <TextView
-                        android:id="@+id/docto_name2"
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User Satisfaction"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="12dp"
-                        android:textAlignment="center"
+                        android:src="@drawable/girl"/>
 
-                        />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_page"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/boy"/>
+
+                </ViewFlipper>
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/bottom_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/flipper"
+                    android:baselineAligned="false"
+                    android:gravity="center"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/imageCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_marginBottom="20dp"
+                        android:layout_gravity="bottom"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="5dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_gravity="center_vertical|center_horizontal">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/blood"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Blood Bank"
+
+                                android:textAlignment="center"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/videoCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="bottom"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="5dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_gravity="center_vertical|center_horizontal">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/injection"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lab Tests"
+                                android:textAlignment="center"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/audioCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="bottom"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="5dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_gravity="center_vertical|center_horizontal">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/medic"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Medicine"
+                                android:textAlignment="center"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:id="@+id/bottom_card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="145dp"
+                    android:layout_below="@+id/bottom_card">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/down"
+                        android:layout_width="match_parent"
+                        android:layout_height="122dp"
+                        app:cardCornerRadius="5dp"
+                        android:elevation="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/down_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/grid_color">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/girl" />
+
+                            <TextView
+                                android:id="@+id/docto_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dr. Neena Singh"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="Oct 10, 2023"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_appointment_icon"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="150dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="05:00 PM"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_clock_icon"/>
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="20dp">
 
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="Oct 10, 2023"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_appointment_icon"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="150dp">
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="50dp"
-                        android:text="05:00 PM"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:drawableLeft="@drawable/ic_clock_icon"/>
-
-                </RelativeLayout>
+                <HorizontalScrollView
+                    android:id="@+id/mycard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bottom_card2"
+                    android:scrollbars="none">
 
 
-            </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:orientation="horizontal">
 
-        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="12dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:cardCornerRadius="50dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="23dp"
+                            android:layout_marginLeft="18dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:src="@drawable/people"/>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <!-- Add more cards as needed -->
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+
+                <LinearLayout
+
+                    android:id="@+id/last"
+                    android:layout_width="match_parent"
+                    android:layout_height="145dp"
+                    android:layout_below="@+id/mycard">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/down2"
+                        android:layout_width="match_parent"
+                        android:layout_height="122dp"
+                        app:cardCornerRadius="5dp"
+                        android:elevation="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/down_image2"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/grid_color">
+
+
+                            <TextView
+                                android:id="@+id/docto_name2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="User Satisfaction"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="12dp"
+                                android:textAlignment="center"
+
+                                />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="Oct 10, 2023"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_appointment_icon"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="150dp">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="50dp"
+                                android:text="05:00 PM"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:layout_marginLeft="20dp"
+                                android:drawableLeft="@drawable/ic_clock_icon"/>
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
 
 
 
-        <androidx.cardview.widget.CardView
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@id/last"/>
+
+
+
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@id/last"/>
+            android:layout_height="match_parent">
+
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minHeight="?attr/actionBarSize"
+                app:titleTextColor="#000000"
+                android:background="#F1FFFC"
+                tools:ignore="MissingConstraints">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="292dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:queryHint="Search Doctor's"
+                    android:elevation="3dp"
+                    style="styles/SearchViewWithMenuIcon" />
+
+            </androidx.appcompat.widget.Toolbar>
 
 
 
 
 
-    </RelativeLayout>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/navigation_menu"
+                android:layout_alignParentBottom="true"
+                android:background="#F1FFFC"
+                app:elevation="2dp"/>
 
-    </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-       <androidx.constraintlayout.widget.ConstraintLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-
-
-
-           <androidx.appcompat.widget.Toolbar
-               android:id="@+id/toolbar"
-               android:layout_width="match_parent"
-               android:layout_height="60dp"
-               android:minHeight="?attr/actionBarSize"
-               app:titleTextColor="#000000"
-               android:background="#F1FFFC"
-               tools:ignore="MissingConstraints">
-
-               <androidx.appcompat.widget.SearchView
-                   android:id="@+id/search_view"
-                   android:layout_width="292dp"
-                   android:layout_height="wrap_content"
-                   android:background="@color/white"
-                   app:queryHint="Search Doctor's"
-                   android:elevation="3dp"
-                   style="styles/SearchViewWithMenuIcon" />
-
-           </androidx.appcompat.widget.Toolbar>
-
-
-
-
-
-           <com.google.android.material.bottomnavigation.BottomNavigationView
-               android:id="@+id/bottomNavigationView"
-               android:layout_width="match_parent"
-               android:layout_height="70dp"
-               app:layout_constraintBottom_toBottomOf="parent"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintHorizontal_bias="0.5"
-               app:layout_constraintStart_toStartOf="parent"
-               app:menu="@menu/navigation_menu"
-               android:layout_alignParentBottom="true"
-               android:background="#F1FFFC"
-               app:elevation="2dp"/>
-
-       </androidx.constraintlayout.widget.ConstraintLayout>
-
-         <Button
+        <Button
             android:id="@+id/logout_btn"
             android:layout_width="100dp"
             android:layout_height="52dp"
-             android:text="LogOut"
-             android:textStyle="bold"
-             android:layout_gravity="center"/>
+            android:text="LogOut"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
 
-
-
-
-   </FrameLayout>
+    </FrameLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
