@@ -3,12 +3,10 @@ package com.amber.bookmydoctor;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,17 +14,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.widget.ImageViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class DashPageActivity extends AppCompatActivity {
+
+    // Define the fragments
+    private HomeFragment homeFragment;
+    private AppointmentFragment appointmentFragment;
+    private AddFragment addFragment;
+    private ShopFragment shopFragment;
+    private ProfileFragment profileFragment;
+
+    BottomNavigationView bottomNavigationView;
+
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser user = auth.getCurrentUser();
@@ -39,6 +47,41 @@ public class DashPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
         SearchView searchView = findViewById(R.id.search_view);
+
+        // Initialize the fragments
+        homeFragment = new HomeFragment();
+        appointmentFragment = new AppointmentFragment();
+        addFragment = new AddFragment();
+        shopFragment = new ShopFragment();
+        profileFragment = new ProfileFragment();
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,homeFragment).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                if (item.getItemId() == R.id.nav_home) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
+                    return true;
+                } else if (item.getItemId() == R.id.nav_appoint) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, appointmentFragment).commit();
+                    return true;
+                } else if (item.getItemId() == R.id.nav_add) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, addFragment).commit();
+                    return true;
+                } else if (item.getItemId() == R.id.nav_shop) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, shopFragment).commit();
+                    return true;
+                } else if (item.getItemId() == R.id.nav_profile) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, profileFragment).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,6 +118,16 @@ public class DashPageActivity extends AppCompatActivity {
         });
     }
 
+    // Method to load a fragment into the FrameLayout
+    private void setFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
+    }
+
+    // ...
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
@@ -91,7 +144,6 @@ public class DashPageActivity extends AppCompatActivity {
         // Define click listeners for various CardViews
         setupCardClickListeners();
     }
-
     private void setupCardClickListeners() {
         // Example CardView click listeners, replace with your CardView IDs and desired actions
         setupCardClickListener(R.id.first_card, CardActivity.class);
