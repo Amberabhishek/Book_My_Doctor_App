@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.amber.bookmydoctor">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,54 +15,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
 
-        <!-- Set SplashActivity as the launcher activity -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         <activity android:name=".MainActivity" />
-
         <activity android:name=".GetStartedActivity" />
-
         <activity android:name=".DoctorDashActivity" />
-
         <activity android:name=".LoginPageActivity" />
-
         <activity android:name=".RegisterActivity" />
-
         <activity android:name=".PhonePageActivity" />
-
         <activity android:name=".ForgotPageActivity" />
-
         <activity android:name=".ForgotOTPActivity" />
-
         <activity android:name=".RecoveyPasswordActivity" />
-
         <activity android:name=".DashPageActivity" />
-
         <activity android:name=".CardActivity" />
-
         <activity android:name=".BloodBankActivity" />
-
         <activity android:name=".LabTestActivity" />
-
         <activity android:name=".MedicineActivity" />
-
         <activity android:name=".BloodBankPageActivity" />
-
         <activity android:name=".GmailPageActivity" />
-
         <activity android:name=".EmailVerificationActivity" />
-
-
-
 
 
     </application>
