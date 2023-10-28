@@ -42,8 +42,6 @@ public class DashPageActivity extends AppCompatActivity {
     private ShopFragment shopFragment;
     private ProfileFragment profileFragment;
 
-
-
     BottomNavigationView bottomNavigationView;
 
 
@@ -117,7 +115,14 @@ public class DashPageActivity extends AppCompatActivity {
                     setFragment(new AboutFragment());
                 } else if (itemId == R.id.nav_help) {
                     setFragment(new HelpFragment());
+                } else if (itemId == R.id.nav_logout) {
+                    // Handle the "Logout" item click
+                    Intent intent = new Intent(DashPageActivity.this, LoginPageActivity.class);
+                    startActivity(intent);
+                    finish();
+                    logoutUser();
                 }
+
 
                 // Close the drawer if it's open
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -142,15 +147,6 @@ public class DashPageActivity extends AppCompatActivity {
 
         // Set the ActionBarDrawerToggle as the drawer listener
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
-
-        // Add the "LogOut" button
-        Button logoutButton = findViewById(R.id.logout_btn);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logoutUser();
-            }
-        });
     }
 
 
@@ -200,9 +196,6 @@ public class DashPageActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
 
 
-        // Navigate back to the login page
-        Intent intent = new Intent(DashPageActivity.this, LoginPageActivity.class);
-        startActivity(intent);
-        finish(); // Close the current activity
+
     }
 }
