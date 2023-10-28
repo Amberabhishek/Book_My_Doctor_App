@@ -1,5 +1,6 @@
 package com.amber.bookmydoctor;
 
+
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.compose.animation.core.Animation;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -35,12 +38,15 @@ import com.google.firebase.auth.FirebaseUser;
 public class DashPageActivity extends AppCompatActivity {
 
 
+
+
     // Define the fragments
     private HomeFragment homeFragment;
     private AppointmentFragment appointmentFragment;
     private AddFragment addFragment;
     private ShopFragment shopFragment;
     private ProfileFragment profileFragment;
+
 
     BottomNavigationView bottomNavigationView;
 
@@ -60,7 +66,6 @@ public class DashPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
 
-
         // Initialize the fragments
         homeFragment = new HomeFragment();
         appointmentFragment = new AppointmentFragment();
@@ -76,6 +81,8 @@ public class DashPageActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+
+
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 if (item.getItemId() == R.id.nav_home) {
                     transaction.replace(R.id.fragment_container, homeFragment);
@@ -91,6 +98,7 @@ public class DashPageActivity extends AppCompatActivity {
                 transaction.addToBackStack(null); // Add the transaction to the back stack
                 transaction.commit();
                 return true;
+
             }
 
         });
@@ -122,7 +130,6 @@ public class DashPageActivity extends AppCompatActivity {
                     finish();
                     logoutUser();
                 }
-
 
                 // Close the drawer if it's open
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -159,15 +166,23 @@ public class DashPageActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    private int backPressCount = 0;
+
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            // If there are fragments in the back stack, pop the back stack
+            // Pop the back stack and navigate back to the previous fragment
             getSupportFragmentManager().popBackStack();
+        } else if (backPressCount < 1) {
+            // If there are no fragments in the back stack and backPressCount is less than 5, increment the count
+            backPressCount++;
+            Toast.makeText(this, "Press back " + (2 - backPressCount) + " more times to exit", Toast.LENGTH_SHORT).show();
         } else {
-            super.onBackPressed(); // If there are no fragments in the back stack, handle as usual
+            // If backPressCount reaches 5, exit the app
+            super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -180,9 +195,10 @@ public class DashPageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_item, menu);
+
+
         return true;
     }
-
 
     private void logoutUser() {
         // Log out the user (implement Firebase Authentication log-out here)
@@ -194,8 +210,6 @@ public class DashPageActivity extends AppCompatActivity {
         editor.apply();
 
         FirebaseAuth.getInstance().signOut();
-
-
 
     }
 }

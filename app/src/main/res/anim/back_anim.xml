@@ -1,0 +1,10 @@
+<!-- res/anim/back_anim.xml -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale
+        android:interpolator="@android:anim/decelerate_interpolator"
+        android:fromXScale="1.2"
+        android:fromYScale="1.2"
+        android:toXScale="1.0"
+        android:toYScale="1.0"
+        android:duration="200" />
+</set>
