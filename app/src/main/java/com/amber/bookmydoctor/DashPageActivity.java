@@ -61,7 +61,7 @@ public class DashPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
-        SearchView searchView = findViewById(R.id.search_view);
+
 
         // Initialize the fragments
         homeFragment = new HomeFragment();
@@ -104,10 +104,6 @@ public class DashPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false); // Hide the default title
 
 
-
-
-
-
         // Get the topNavigationView for top navigation
         topNavigationView = findViewById(R.id.topNavigationview);
         topNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -130,6 +126,7 @@ public class DashPageActivity extends AppCompatActivity {
                 return true;
             }
         });
+
 
         // Get the DrawerLayout and ActionBarDrawerToggle
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -185,31 +182,11 @@ public class DashPageActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        actionBarDrawerToggle.syncState();
-
-        // Define click listeners for various CardViews
-        setupCardClickListeners();
-    }
-    private void setupCardClickListeners() {
-        // Example CardView click listeners, replace with your CardView IDs and desired actions
-        setupCardClickListener(R.id.first_card, CardActivity.class);
-        setupCardClickListener(R.id.imageCard, BloodBankActivity.class);
-        setupCardClickListener(R.id.videoCard, LabTestActivity.class);
-        setupCardClickListener(R.id.audioCard, MedicineActivity.class);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_item, menu);
+        return true;
     }
 
-    private void setupCardClickListener(int cardViewId, Class<?> targetActivity) {
-        CardView cardView = findViewById(cardViewId);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashPageActivity.this, targetActivity);
-                startActivity(intent);
-            }
-        });
-    }
 
     private void logoutUser() {
         // Log out the user (implement Firebase Authentication log-out here)
@@ -228,6 +205,4 @@ public class DashPageActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Close the current activity
     }
-
-
 }
