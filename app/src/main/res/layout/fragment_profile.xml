@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/grid_color">
 
 
@@ -81,7 +80,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/editPrescription"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             app:cardCornerRadius="15dp"
@@ -100,7 +98,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_pris"
+                    android:src="@drawable/ic_upload"
                     android:layout_centerVertical="true"/>
 
                 <TextView
@@ -117,7 +115,41 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/healthTipsCard"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cardCornerRadius="15dp"
+            android:background="@drawable/grid_color"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_upload"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="70dp"
+                    android:drawableRight="@drawable/ic_right_arrow"
+                    android:text="Edit Profile"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
             app:cardCornerRadius="15dp"
@@ -171,42 +203,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_history"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="70dp"
-                    android:drawableRight="@drawable/ic_right_arrow"
-                    android:text="History"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical"/>
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:cardCornerRadius="15dp"
-            android:background="@drawable/grid_color"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
-
-            <RelativeLayout
-                android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_rate_us"
+                    android:src="@drawable/ic_upload"
                     android:layout_centerVertical="true"/>
 
                 <TextView
@@ -223,7 +220,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/logoutCardButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             app:cardCornerRadius="15dp"
