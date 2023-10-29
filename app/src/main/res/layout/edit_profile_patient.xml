@@ -74,13 +74,14 @@
         android:layout_marginRight="12dp"
         app:cardElevation="4dp">
 
-        <EditText
-            android:id="@+id/text_dob"
+        <TextView
+            android:id="@+id/button_dob"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:hint="Date of Birth"
             android:padding="8dp"
-            android:inputType="none"
+            android:textSize="18sp"
             android:background="@null"
             android:drawableRight="@drawable/ic_appointment_icon" />
     </androidx.cardview.widget.CardView>
