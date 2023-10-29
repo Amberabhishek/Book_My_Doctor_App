@@ -14,9 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
-
         <activity
-            android:name=".SplashActivity"
+            android:name=".ProfilePagesCards.HealthTipsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilePagesCards.EditPrescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,25 +29,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".GetStartedActivity" />
-        <activity android:name=".DoctorDashActivity" />
-        <activity android:name=".LoginPageActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".PhonePageActivity" />
-        <activity android:name=".ForgotPageActivity" />
-        <activity android:name=".ForgotOTPActivity" />
-        <activity android:name=".RecoveyPasswordActivity" />
-        <activity android:name=".DashPageActivity" />
-        <activity android:name=".CardActivity" />
-        <activity android:name=".BloodBankActivity" />
-        <activity android:name=".LabTestActivity" />
-        <activity android:name=".MedicineActivity" />
-        <activity android:name=".BloodBankPageActivity" />
-        <activity android:name=".GmailPageActivity" />
-        <activity android:name=".EmailVerificationActivity" />
-
-
+        <activity android:name=".AllActivity.MainActivity" />
+        <activity android:name=".AllActivity.GetStartedActivity" />
+        <activity android:name=".AllActivity.DoctorDashActivity" />
+        <activity android:name=".AllActivity.LoginPageActivity" />
+        <activity android:name=".AllActivity.RegisterActivity" />
+        <activity android:name=".AllActivity.PhonePageActivity" />
+        <activity android:name=".AllActivity.ForgotPageActivity" />
+        <activity android:name=".AllActivity.ForgotOTPActivity" />
+        <activity android:name=".AllActivity.RecoveyPasswordActivity" />
+        <activity android:name=".AllActivity.DashPageActivity" />
+        <activity android:name=".AllActivity.CardActivity" />
+        <activity android:name=".AllActivity.BloodBankActivity" />
+        <activity android:name=".AllActivity.LabTestActivity" />
+        <activity android:name=".AllActivity.MedicineActivity" />
+        <activity android:name=".AllActivity.BloodBankPageActivity" />
+        <activity android:name=".AllActivity.GmailPageActivity" />
+        <activity android:name=".AllActivity.EmailVerificationActivity" />
     </application>
 
 </manifest>
