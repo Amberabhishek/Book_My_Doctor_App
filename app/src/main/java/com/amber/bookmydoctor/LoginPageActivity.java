@@ -26,7 +26,7 @@ public class LoginPageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.activity_login_page);
 
         // Check if the user is already logged in
         SharedPreferences sharedPref = getSharedPreferences("login_status", Context.MODE_PRIVATE);

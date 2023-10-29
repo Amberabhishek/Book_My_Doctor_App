@@ -38,8 +38,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class DashPageActivity extends AppCompatActivity {
 
 
-
-
     // Define the fragments
     private HomeFragment homeFragment;
     private AppointmentFragment appointmentFragment;
