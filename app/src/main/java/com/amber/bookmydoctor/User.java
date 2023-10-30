@@ -5,6 +5,7 @@ public class User {
     private String phoneNumber;
     private String dateOfBirth;
     private String gender;
+    private String imageUrl; // New field for storing the image URL
 
     // Default constructor
     public User() {
@@ -12,11 +13,12 @@ public class User {
     }
 
     // Parameterized constructor
-    public User(String name, String phoneNumber, String dateOfBirth, String gender) {
+    public User(String name, String phoneNumber, String dateOfBirth, String gender, String imageUrl) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
+        this.imageUrl = imageUrl;
     }
 
     // Getter for name
@@ -57,5 +59,15 @@ public class User {
     // Setter for gender
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    // Getter for imageUrl
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    // Setter for imageUrl
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

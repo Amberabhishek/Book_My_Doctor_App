@@ -1,5 +1,7 @@
 package com.amber.bookmydoctor.Fragments;
 
+import static androidx.browser.customtabs.CustomTabsClient.getPackageName;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +16,8 @@ import com.amber.bookmydoctor.ProfilePagesCards.EditPrescriptionActivity;
 import com.amber.bookmydoctor.ProfilePagesCards.EditProfileFragment;
 import com.amber.bookmydoctor.ProfilePagesCards.HealthTipsActivity;
 import com.amber.bookmydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
+import android.net.Uri;
 
 public class ProfileFragment extends Fragment {
 
@@ -61,6 +65,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 // Handle the logout action, for example, clearing user session or data.
                 // Then, navigate to the Login page.
+
                 Intent intent = new Intent(getActivity(), LoginPageActivity.class);
                 startActivity(intent);
                 getActivity().finish(); // Optional: Finish the current activity to prevent going back to the profile.
@@ -80,6 +85,24 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+/// Find the CardView in your code
+        CardView rateUsCardView = view.findViewById(R.id.rateUsCardView); // Replace with the actual ID
+
+        // Set an OnClickListener for the CardView
+        rateUsCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the Play Store to your app's page
+                String appPackageName = getActivity().getPackageName(); // Use the context's getPackageName
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException e) {
+                    // If the Play Store app is not installed, open the Play Store website
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+            }
+        });
         return view;
     }
+
 }
