@@ -7,12 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,13 +25,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.amber.bookmydoctor.Fragments.AddFragment;
+import com.amber.bookmydoctor.Fragments.HospitalFragment;
 import com.amber.bookmydoctor.Fragments.AppointmentFragment;
 import com.amber.bookmydoctor.Fragments.HomeFragment;
 import com.amber.bookmydoctor.Fragments.ProfileFragment;
 import com.amber.bookmydoctor.Fragments.ShopFragment;
 import com.amber.bookmydoctor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,13 +44,11 @@ public class DashPageActivity extends AppCompatActivity {
     // Define the fragments
     private HomeFragment homeFragment;
     private AppointmentFragment appointmentFragment;
-    private AddFragment addFragment;
+    private HospitalFragment addFragment;
     private ShopFragment shopFragment;
     private ProfileFragment profileFragment;
 
-
     BottomNavigationView bottomNavigationView;
-
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser user = auth.getCurrentUser();
@@ -63,6 +61,15 @@ public class DashPageActivity extends AppCompatActivity {
     private String userName;
 
 
+    private void updateToolbarTitle(String title) {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +79,7 @@ public class DashPageActivity extends AppCompatActivity {
         // Initialize the fragments
         homeFragment = new HomeFragment();
         appointmentFragment = new AppointmentFragment();
-        addFragment = new AddFragment();
+        addFragment = new HospitalFragment();
         shopFragment = new ShopFragment();
         profileFragment = new ProfileFragment();
 
@@ -84,29 +91,56 @@ public class DashPageActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-
-
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                String fragmentTitle = "";
+
                 if (item.getItemId() == R.id.nav_home) {
+                    transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, homeFragment);
+                    fragmentTitle = "Home";
                 } else if (item.getItemId() == R.id.nav_appoint) {
+                    transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, appointmentFragment);
-                } else if (item.getItemId() == R.id.nav_add) {
+                    fragmentTitle = "Appointments";
+                } else if (item.getItemId() == R.id.nav_hospital) {
+                    transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, addFragment);
+                    fragmentTitle = "Hospitals";
                 } else if (item.getItemId() == R.id.nav_shop) {
+                    transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, shopFragment);
+                    fragmentTitle = "Shop";
                 } else if (item.getItemId() == R.id.nav_profile) {
+                    transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, profileFragment);
+                    fragmentTitle = "Profile";
                 }
+
                 transaction.addToBackStack(null); // Add the transaction to the back stack
                 transaction.commit();
+                // Update the toolbar title
+                updateToolbarTitle(fragmentTitle);
+
                 return true;
+            }
+        });
+
+ //emergency number//
+        ImageButton fabCallAmbulance = findViewById(R.id.fab_call_ambulance);
+        fabCallAmbulance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ambulanceNumber = "123"; // Replace with the actual ambulance number
+                Uri phoneUri = Uri.parse("tel:" + ambulanceNumber);
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL, phoneUri);
+                startActivity(dialIntent);
 
             }
 
         });
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+    Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false); // Hide the default title
@@ -127,7 +161,7 @@ public class DashPageActivity extends AppCompatActivity {
                     openGmailForFeedback();
                 } else if (itemId == R.id.nav_logout) {
                     // Handle the "Logout" item click
-                    Intent intent = new Intent(DashPageActivity.this, LoginPageActivity.class);
+                    Intent intent = new Intent(DashPageActivity.this, DoctorDashActivity.class);
                     startActivity(intent);
                     finish();
                     logoutUser();
@@ -139,10 +173,6 @@ public class DashPageActivity extends AppCompatActivity {
                 }
                 return true;
             }
-
-
-
-
 
             //Share App//
         private void shareApp() {
@@ -169,7 +199,6 @@ public class DashPageActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
-
 
         //Help and Feedback//
             private void openGmailForFeedback() {
@@ -216,16 +245,42 @@ public class DashPageActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            // Pop the back stack and navigate back to the previous fragment
-            getSupportFragmentManager().popBackStack();
-        } else if (backPressCount < 1) {
-            backPressCount++;
-            Toast.makeText(this, "Press back again", Toast.LENGTH_SHORT).show();
-        } else {
+
+        Log.d("BackStackTest", "onBackPressed called");
+        // Check if the current fragment is the "Home" fragment
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+        if (currentFragment instanceof HomeFragment) {
+            // If the current fragment is the "Home" fragment, confirm exit
+            showExitConfirmationDialog();
+        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            // If there are fragments on the back stack, navigate back
             super.onBackPressed();
+        } else {
+            // If there are no fragments on the back stack, confirm exit
+            showExitConfirmationDialog();
         }
     }
+
+    private void showExitConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Exit");
+        builder.setMessage("Are you sure you want to exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish(); // Exit the app
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); // Dismiss the dialog
+            }
+        });
+        builder.show();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

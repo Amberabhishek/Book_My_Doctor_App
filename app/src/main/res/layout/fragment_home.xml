@@ -263,8 +263,7 @@
                         android:elevation="12dp"
                         android:layout_marginTop="19dp"
                         android:layout_marginLeft="12dp"
-                        android:layout_marginRight="12dp"
-                        >
+                        android:layout_marginRight="12dp">
 
                         <LinearLayout
                             android:id="@+id/card_image"
@@ -543,7 +542,6 @@
 
 
                 <LinearLayout
-
                     android:id="@+id/bottom_card2"
                     android:layout_width="match_parent"
                     android:layout_height="145dp"
@@ -645,289 +643,154 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp"
+                        android:layout_height="170dp"
                         android:orientation="horizontal">
 
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
                             android:elevation="10dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="12dp">
 
                             <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/ic_person_icon"
+                                    android:scaleType="centerCrop"
+                                    android:contentDescription="Hospital Image"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hospital Name"
+                                    android:textSize="16sp"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hospital Address"
+                                    android:textSize="12sp"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hospital Phone"
+                                    android:textSize="12sp"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
+                            android:elevation="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="12dp">
+
+                            <LinearLayout
+                                android:layout_width="150dp"
+                                android:layout_height="150dp">
+
+                                <ImageView
+                                    android:layout_width="150dp"
+                                    android:layout_height="80dp"/>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
                             android:elevation="10dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="12dp">
 
                             <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
+                                android:layout_width="150dp"
+                                android:layout_height="150dp">
 
                                 <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
+                                    android:layout_width="150dp"
+                                    android:layout_height="80dp"/>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
                             android:elevation="10dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="12dp">
 
                             <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
+                                android:layout_width="150dp"
+                                android:layout_height="150dp">
 
                                 <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
+                                    android:layout_width="150dp"
+                                    android:layout_height="80dp"/>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
                             android:elevation="10dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="12dp">
 
                             <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
+                                android:layout_width="150dp"
+                                android:layout_height="150dp">
 
                                 <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
+                                    android:layout_width="150dp"
+                                    android:layout_height="80dp"/>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="5dp"
                             android:elevation="10dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="12dp">
 
                             <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
+                                android:layout_width="150dp"
+                                android:layout_height="150dp">
 
                                 <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
+                                    android:layout_width="150dp"
+                                    android:layout_height="80dp"/>
 
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="75dp"
-                                    android:layout_height="75dp"/>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
 
 
 
@@ -951,7 +814,7 @@
                         android:layout_height="122dp"
                         app:cardCornerRadius="5dp"
                         android:elevation="12dp"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="14dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
                         >

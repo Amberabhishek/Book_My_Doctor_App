@@ -15,9 +15,9 @@
         android:title="    Appointment" />
 
     <item
-        android:id="@+id/nav_add"
-        android:icon="@drawable/ic_add_icon"
-        android:title="    More" />
+        android:id="@+id/nav_hospital"
+        android:icon="@drawable/ic_hospital"
+        android:title="    Hospitals" />
 
     <item
         android:id="@+id/nav_shop"

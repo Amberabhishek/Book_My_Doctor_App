@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_checked="true"
+        android:drawable="@color/newgreen" /> <!-- Change the color to the desired highlight color -->
+        <item android:drawable="@color/lightgreen" /> <!-- Default state when not selected -->
+</selector>
