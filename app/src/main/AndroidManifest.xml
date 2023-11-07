@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.amber.bookmydoctor">
 
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -17,6 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
+        <activity
+            android:name=".Fragments.HospitalDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".ProfilePagesCards.HealthTipsActivity"
             android:exported="false" />
@@ -49,6 +52,10 @@
         <activity android:name=".AllActivity.BloodBankPageActivity" />
         <activity android:name=".AllActivity.GmailPageActivity" />
         <activity android:name=".AllActivity.EmailVerificationActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD4rrS_p4XTi8u5MKro7o9TByVcMJBsP6Y" />
     </application>
 
 </manifest>
