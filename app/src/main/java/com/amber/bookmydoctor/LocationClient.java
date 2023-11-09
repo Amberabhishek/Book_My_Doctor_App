@@ -87,7 +87,7 @@ public class LocationClient {
     public void nearbySearcher() {
         // Define the place fields you want to retrieve
         List<Field> placeFields = Arrays.asList(
-                Field.NAME, Field.ADDRESS, Field.PHOTO_METADATAS);
+                Field.NAME, Field.ADDRESS, Field.PHOTO_METADATAS, Field.TYPES);
 
         // Define the request for nearby places
         FindCurrentPlaceRequest request = FindCurrentPlaceRequest.newInstance(placeFields);
@@ -114,10 +114,14 @@ public class LocationClient {
                     List<PhotoMetadata> photoMetadata = place.getPhotoMetadatas();
                     String imageUrl = "";
 
+                    // Inside the loop where you're processing place metadata
                     if (photoMetadata != null && !photoMetadata.isEmpty()) {
                         PhotoMetadata photo = photoMetadata.get(0);
-                        // Assuming you have a way to get the image URL, assign it to imageUrl.
-                        // imageUrl = getImageUrlFromPhotoMetadata(photo);
+
+                        // Assuming you have a valid photo reference, you can construct a photo URL
+                        String photoReference = photo.getAttributions(); // Get the photo reference
+
+                        imageUrl = getPhotoUrl(photoReference);
                     }
 
                     // Create a HospitalModel object with the extracted details
@@ -125,6 +129,8 @@ public class LocationClient {
 
                     // Add the hospital object to the list
                     hospitalModelArrayList.add(hospital);
+
+                    Log.d("LocationClient", "Recorded Place - Name: " + name + ", Address: " + address);
                 }
 
                 // Update the HospitalAdapter with the updated hospital data
@@ -136,5 +142,19 @@ public class LocationClient {
                 }
             }
         });
+    }
+
+    private String getPhotoUrl(String photoReference) {
+        String apiKey = "AIzaSyD4rrS_p4XTi8u5MKro7o9TByVcMJBsP6Y"; // Replace with your actual API key
+        int maxWidth = 90; // Specify your desired photo width
+        int maxHeight = 90; // Specify your desired photo height
+
+        String url = "https://maps.googleapis.com/maps/api/place/photo" +
+                "?maxwidth=" + maxWidth +
+                "&maxheight=" + maxHeight +
+                "&photoreference=" + photoReference +
+                "&key=" + apiKey;
+
+        return url;
     }
 }

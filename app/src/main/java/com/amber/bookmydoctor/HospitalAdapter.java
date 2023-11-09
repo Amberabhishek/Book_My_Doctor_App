@@ -1,5 +1,7 @@
 package com.amber.bookmydoctor;
 
+import static android.view.LayoutInflater.from;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHolder> {
@@ -33,8 +38,9 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
         holder.hospitalName.setText(model.getName());
         holder.hospitalAddress.setText(model.getAddress());
 
-        // Set the hospital image using Glide or another image loading library
-        // Example: Glide.with(context).load(model.getImageUrl()).into(holder.hospitalImage);
+
+        // Set the hospital image using Glide
+        Glide.with(context).load(model.getImageUrl()).into(holder.hospitalImage);
     }
 
     @Override
