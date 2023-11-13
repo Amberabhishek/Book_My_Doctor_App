@@ -3,6 +3,7 @@ package com.amber.bookmydoctor.AllActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -39,6 +40,10 @@ public class BloodBankPageActivity extends AppCompatActivity {
                 if (validateForm()) {
                     // All fields are filled, perform submission logic here
                     showToast("Submit successful!");
+                    // Start the new activity (change NextActivity.class to the actual class name)
+                    Intent intent = new Intent(BloodBankPageActivity.this, DonateChoiceActivity.class);
+                    startActivity(intent);
+
                 }
             }
         });

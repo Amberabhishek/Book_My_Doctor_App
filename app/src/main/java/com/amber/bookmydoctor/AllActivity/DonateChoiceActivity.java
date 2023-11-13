@@ -36,7 +36,7 @@ public class DonateChoiceActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Perform the action you want when the donates ImageView is clicked
                 // For example, start a new activity
-                Intent intent = new Intent(DonateChoiceActivity.this, BloodBankPageActivity.class);
+                Intent intent = new Intent(DonateChoiceActivity.this, BloodLocationActivity.class);
                 startActivity(intent);
             }
         });

@@ -49,7 +49,7 @@
             android:layout_below="@id/editTextName"
             android:layout_marginTop="16dp"
             android:hint="Enter your age"
-            android:inputType="none"
+            android:inputType="number"
             android:drawableEnd="@drawable/ic_appointment_icon"
             android:onClick="showDatePicker" />
 

@@ -54,6 +54,7 @@
         <activity android:name=".AllActivity.EmailVerificationActivity" />
         <activity android:name=".AllActivity.DonateChoiceActivity" />
         <activity android:name=".AllActivity.BloodDonorActivity" />
+        <activity android:name=".AllActivity.BloodLocationActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

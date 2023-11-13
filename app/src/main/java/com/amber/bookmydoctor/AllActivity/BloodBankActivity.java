@@ -24,7 +24,7 @@ public class BloodBankActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to open the target activity
-                Intent intent = new Intent(BloodBankActivity.this, DonateChoiceActivity.class);
+                Intent intent = new Intent(BloodBankActivity.this, BloodBankPageActivity.class);
                 // Replace "TargetActivity.class" with the actual name of the target activity.
 
                 // Start the target activity
