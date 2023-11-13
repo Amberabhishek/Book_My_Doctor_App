@@ -5,6 +5,9 @@
     <color name="green">#43C3BB</color>
     <color name="lightgreen">#F1FFFC</color>
     <color name="newgreen">#00BCAA</color>
+    <color name="red">#FF0000</color>
+    <color name="colorAccent">@color/red</color>
+
 
 
 </resources>

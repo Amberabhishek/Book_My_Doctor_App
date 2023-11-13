@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- EditText Style -->
+    <style name="EditTextStyle">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+
+
+</resources>

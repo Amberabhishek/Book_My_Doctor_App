@@ -16,11 +16,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import com.amber.bookmydoctor.AllActivity.DashPageActivity;
+
 import com.amber.bookmydoctor.Fragments.ProfileFragment;
 import com.amber.bookmydoctor.R;
 import com.amber.bookmydoctor.User;
@@ -33,30 +33,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.util.Calendar;
 
 public class EditProfileFragment extends Fragment {
-    private ImageView profileImage;  // Add the ImageView for the profile image
+    private ImageView saveButton;
+    private ImageView profileImage;
     private TextView dateOfBirthButton;
     private EditText nameEditText;
     private EditText phoneNumberEditText;
     private Spinner genderSpinner;
-    private Uri selectedImageUri;  // Store the selected image URI
+    private Uri selectedImageUri;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_profile_patient, container, false);
 
-        // Find and initialize UI elements
         profileImage = view.findViewById(R.id.profileImage);
         dateOfBirthButton = view.findViewById(R.id.button_dob);
         nameEditText = view.findViewById(R.id.etNames);
         phoneNumberEditText = view.findViewById(R.id.etPhoneNumbers);
         genderSpinner = view.findViewById(R.id.spinner);
-        CardView saveButton = view.findViewById(R.id.save_button);
+        saveButton = view.findViewById(R.id.save_button);
 
-        // Set up the Date of Birth picker
         dateOfBirthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +62,6 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        // Set up the Spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 requireContext(),
                 R.array.spinner_data,
@@ -73,7 +70,6 @@ public class EditProfileFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(adapter);
 
-        // Set up the Save button click listener
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +77,6 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        // Set an OnClickListener for the profile image
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,26 +88,22 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void showDatePickerDialog() {
-        // Get the current date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Create a DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 requireContext(),
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-                        // Handle the selected date
                         String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
                         dateOfBirthButton.setText(selectedDate);
                     }
                 },
                 year, month, day
         );
-        // Show the DatePickerDialog
         datePickerDialog.show();
     }
 
@@ -126,11 +117,7 @@ public class EditProfileFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
-            // Get the selected image URI
             selectedImageUri = data.getData();
-
-            // You can now use the selectedImageUri to display the image in your ImageView or perform any other operation.
-            // For example, if you want to set the selected image as the source of your profileImage ImageView:
             profileImage.setImageURI(selectedImageUri);
         }
     }
@@ -146,37 +133,32 @@ public class EditProfileFragment extends Fragment {
 
         if (updatedName.isEmpty() || updatedPhoneNumber.isEmpty() || selectedDateOfBirth.isEmpty() || selectedGender.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill in all the details", Toast.LENGTH_SHORT).show();
-            return; // Exit the method if any of the fields are empty
+            return;
         }
 
-        // Upload the image to Firebase Storage and get the image URL
         if (selectedImageUri != null) {
-            String imageFileName = currentUser.getUid() + ".jpg"; // Unique file name
+            String imageFileName = currentUser.getUid() + ".jpg";
             StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("profile_images/" + imageFileName);
             UploadTask uploadTask = storageRef.putFile(selectedImageUri);
 
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    // Image upload successful, get the download URL
                     storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri downloadUri) {
-                            // Set the image URL in the user object
                             String imageUrl = downloadUri.toString();
                             User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, imageUrl);
 
-                            // Save the user data to the database
                             userRef.setValue(user)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             Toast.makeText(requireContext(), "Profile Saved Successfully", Toast.LENGTH_SHORT).show();
-                                            // After saving the profile data, navigate to the ProfileFragment
                                             Fragment profileFragment = new ProfileFragment();
                                             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
                                             transaction.replace(R.id.fragment_container, profileFragment);
-                                            transaction.addToBackStack(null); // Optional: Add the transaction to the back stack
+                                            transaction.addToBackStack(null);
                                             transaction.commit();
                                         }
                                     })
@@ -191,18 +173,16 @@ public class EditProfileFragment extends Fragment {
                 }
             });
         } else {
-            // If no image is selected, save the user data without an image URL
             User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, "");
             userRef.setValue(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(requireContext(), "Profile Saved Successfully", Toast.LENGTH_SHORT).show();
-                            // After saving the profile data, navigate to the ProfileFragment
                             Fragment profileFragment = new ProfileFragment();
                             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.fragment_container, profileFragment);
-                            transaction.addToBackStack(null); // Optional: Add the transaction to the back stack
+                            transaction.addToBackStack(null);
                             transaction.commit();
                         }
                     })

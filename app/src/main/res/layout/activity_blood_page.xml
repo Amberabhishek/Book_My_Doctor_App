@@ -20,9 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            >
-
-
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -32,8 +30,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="2dp"
-                android:src="@drawable/design_page"
-                 />
+                android:src="@drawable/design_page" />
 
         </RelativeLayout>
 
@@ -42,7 +39,6 @@
             android:columnCount="2"
             android:rowCount="18"
             android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
             android:layout_weight="7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -58,8 +54,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 app:cardElevation="8dp"
-                app:cardCornerRadius="5dp"
-                >
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -75,10 +70,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="We"
+                        android:text="A+"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -114,10 +109,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Family"
+                        android:text="O+"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -152,49 +147,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Lovely"
+                        android:text="B+"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="10dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="5dp"
-                >
-
-                <LinearLayout
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Capton"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -230,10 +186,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Friends"
+                        android:text="AB+"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -269,10 +225,49 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Calendars"
+                        android:text="A-"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="10dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="5dp"
+                >
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="O-"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -307,10 +302,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Calendars"
+                        android:text="B-"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -328,8 +323,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 app:cardElevation="8dp"
-                app:cardCornerRadius="5dp"
-                >
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -345,10 +339,10 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:text="Calendars"
+                        android:text="AB-"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -356,22 +350,26 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
-
 
 
         </GridLayout>
+
+
+
 
         <TextView
             android:id="@+id/textGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GRID LAYOUT"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="30dp"
+            android:text="EVERY BLOOD DONOR IS A LIFESAVER"
             android:textColor="@android:color/white"
             android:textSize="34sp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="95dp"/>
+            android:layout_marginBottom="20dp" />
+
+
 
     </LinearLayout>
 

@@ -40,8 +40,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class DashPageActivity extends AppCompatActivity {
 
-
-    // Define the fragments
     private HomeFragment homeFragment;
     private AppointmentFragment appointmentFragment;
     private HospitalFragment addFragment;
@@ -59,7 +57,7 @@ public class DashPageActivity extends AppCompatActivity {
     private NavigationView topNavigationView;
 
     private String userName;
-
+    private Fragment currentFragment;
 
     private void updateToolbarTitle(String title) {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -69,14 +67,11 @@ public class DashPageActivity extends AppCompatActivity {
         }
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
 
-        // Initialize the fragments
         homeFragment = new HomeFragment();
         appointmentFragment = new AppointmentFragment();
         addFragment = new HospitalFragment();
@@ -85,10 +80,9 @@ public class DashPageActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -98,34 +92,38 @@ public class DashPageActivity extends AppCompatActivity {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, homeFragment);
                     fragmentTitle = "Home";
+                    currentFragment = homeFragment;
                 } else if (item.getItemId() == R.id.nav_appoint) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, appointmentFragment);
                     fragmentTitle = "Appointments";
+                    currentFragment = appointmentFragment;
                 } else if (item.getItemId() == R.id.nav_hospital) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, addFragment);
                     fragmentTitle = "Hospitals";
+                    currentFragment = addFragment;
                 } else if (item.getItemId() == R.id.nav_shop) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, shopFragment);
                     fragmentTitle = "Shop";
+                    currentFragment = shopFragment;
                 } else if (item.getItemId() == R.id.nav_profile) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.fragment_container, profileFragment);
                     fragmentTitle = "Profile";
+                    currentFragment = profileFragment;
                 }
 
-                transaction.addToBackStack(null); // Add the transaction to the back stack
+                transaction.addToBackStack(null);
                 transaction.commit();
-                // Update the toolbar title
                 updateToolbarTitle(fragmentTitle);
+                updateFabVisibility();
 
                 return true;
             }
         });
 
- //emergency number//
         ImageButton fabCallAmbulance = findViewById(R.id.fab_call_ambulance);
         fabCallAmbulance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,19 +132,13 @@ public class DashPageActivity extends AppCompatActivity {
                 Uri phoneUri = Uri.parse("tel:" + ambulanceNumber);
                 Intent dialIntent = new Intent(Intent.ACTION_DIAL, phoneUri);
                 startActivity(dialIntent);
-
             }
-
         });
 
-
-    Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false); // Hide the default title
-
-
-        // Get the topNavigationView for top navigation
         topNavigationView = findViewById(R.id.topNavigationview);
         topNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -156,43 +148,38 @@ public class DashPageActivity extends AppCompatActivity {
                 if (itemId == R.id.nav_share) {
                     shareApp();
                 } else if (itemId == R.id.nav_about) {
-                    openAboutUsPopup();;
+                    openAboutUsPopup();
                 } else if (itemId == R.id.nav_help) {
                     openGmailForFeedback();
                 } else if (itemId == R.id.nav_logout) {
-                    // Handle the "Logout" item click
                     Intent intent = new Intent(DashPageActivity.this, DoctorDashActivity.class);
                     startActivity(intent);
                     finish();
                     logoutUser();
                 }
 
-                // Close the drawer if it's open
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
                 return true;
             }
 
-            //Share App//
-        private void shareApp() {
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out this app");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "I found this amazing app that you might like: https://play.google.com/store/apps/details?id=" + getPackageName());
-            startActivity(Intent.createChooser(shareIntent, "Share via"));
-        }
-            //About Us popup//
+            private void shareApp() {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out this app");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "I found this amazing app that you might like: https://play.google.com/store/apps/details?id=" + getPackageName());
+                startActivity(Intent.createChooser(shareIntent, "Share via"));
+            }
+
             private void openAboutUsPopup() {
-                // Create and show an AlertDialog or Dialog for displaying the "About Us" content
                 AlertDialog.Builder builder = new AlertDialog.Builder(DashPageActivity.this);
                 builder.setTitle("About Us");
-                builder.setMessage("Book My Doctor is an Android application that not only solves the issue of the patients as user, but also solves the problems of the doctors as well.\n" +
+                builder.setMessage("Book My Doctor is an Android application that not only solves the issue of the patients as user but also solves the problems of the doctors as well.\n" +
                         "The App offers users to book an appointment with the doctor that are register in the app already.\n" +
-                        "Thankyou"); // Replace with your content
+                        "Thank you"); // Replace with your content
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // Handle the "OK" button click if needed
                         dialog.dismiss();
                     }
                 });
@@ -200,64 +187,59 @@ public class DashPageActivity extends AppCompatActivity {
                 dialog.show();
             }
 
-        //Help and Feedback//
             private void openGmailForFeedback() {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse("mailto:")); // Use "mailto:" to specify email as the data
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"amberaashiqui226@gmail.com"}); // Set the recipient's email address
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback"); // Set the email subject
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Write Your feedback here..."); // Set the email body
-
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"amberaashiqui226@gmail.com"});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Write Your feedback here...");
                 try {
                     startActivity(emailIntent);
                 } catch (android.content.ActivityNotFoundException e) {
                 }
             }
-
         });
 
-        // Get the DrawerLayout and ActionBarDrawerToggle
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-
-        // Enable the hamburger icon
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_bar); // Use your drawable resource here
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_bar);
         }
 
-        // Set the ActionBarDrawerToggle as the drawer listener
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
     }
 
-    // Method to load a fragment into the FrameLayout
     private void setFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null); // Add the transaction to the back stack
+        transaction.addToBackStack(null);
         transaction.commit();
+        currentFragment = fragment;
+        updateFabVisibility();
     }
 
-    private int backPressCount = 0;
+    private void updateFabVisibility() {
+        ImageButton fabCallAmbulance = findViewById(R.id.fab_call_ambulance);
+        if (currentFragment instanceof HomeFragment) {
+            fabCallAmbulance.setVisibility(View.VISIBLE);
+        } else {
+            fabCallAmbulance.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public void onBackPressed() {
-
-        Log.d("BackStackTest", "onBackPressed called");
-        // Check if the current fragment is the "Home" fragment
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
         if (currentFragment instanceof HomeFragment) {
-            // If the current fragment is the "Home" fragment, confirm exit
             showExitConfirmationDialog();
         } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            // If there are fragments on the back stack, navigate back
             super.onBackPressed();
         } else {
-            // If there are no fragments on the back stack, confirm exit
             showExitConfirmationDialog();
         }
     }
@@ -269,23 +251,22 @@ public class DashPageActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish(); // Exit the app
+                finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); // Dismiss the dialog
+                dialog.dismiss();
             }
         });
         builder.show();
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true; // This handles the opening/closing of the navigation drawer
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -297,9 +278,6 @@ public class DashPageActivity extends AppCompatActivity {
     }
 
     private void logoutUser() {
-        // Log out the user (implement Firebase Authentication log-out here)
-        // Example: FirebaseAuth.getInstance().signOut();
-        // Clear the user's login status
         SharedPreferences sharedPref = getSharedPreferences("login_status", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("isLoggedIn", false);

@@ -7,22 +7,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amber.bookmydoctor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import android.widget.Toast;
 
 public class LoginPageActivity extends Activity {
 
     EditText emailEditText, passwordEditText;
-    Button loginButton;
-
+    ImageView loginButton, registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +37,13 @@ public class LoginPageActivity extends Activity {
             Intent intent = new Intent(LoginPageActivity.this, DashPageActivity.class);
             startActivity(intent);
             finish(); // Close the current activity
-        } else {
-            // Continue with the login page
-            // ...
         }
 
-        Button getStartedButton = findViewById(R.id.register);
-        getStartedButton.setOnClickListener(new View.OnClickListener() {
+        ImageView registerButton = findViewById(R.id.register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Define the intent to start the new activity here
+                // Start the registration activity
                 Intent intent = new Intent(LoginPageActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
@@ -58,7 +54,7 @@ public class LoginPageActivity extends Activity {
         forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Define the intent to start the new activity for password recovery here
+                // Start the password recovery activity
                 Intent passwordRecoveryIntent = new Intent(LoginPageActivity.this, ForgotPageActivity.class);
                 startActivity(passwordRecoveryIntent);
             }

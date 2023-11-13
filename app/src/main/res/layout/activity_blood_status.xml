@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/group"
+    android:background="@drawable/screen_blood">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/rect"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_marginTop="120dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="170dp"
+        android:layout_height="240dp"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/group_card"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Blood Group"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Your other views go here -->
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/drop"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="A+"
+                    android:textStyle="bold"
+                    android:textSize="35sp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center" />
+
+            </FrameLayout>
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/donars"
+        android:layout_width="290dp"
+        android:layout_height="80dp"
+        android:src="@drawable/donate1"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:id="@+id/donates"
+        android:layout_below="@+id/donars"
+        android:layout_width="290dp"
+        android:layout_height="80dp"
+        android:src="@drawable/donate2"
+        android:layout_marginBottom="30dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

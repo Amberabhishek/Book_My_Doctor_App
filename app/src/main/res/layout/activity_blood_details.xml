@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/second_blood">
+
+    <TextView
+        android:id="@+id/image_bld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fill Your Details"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:textSize="25sp"
+        android:gravity="center"/>
+
+
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_bld"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
+
+    <!-- Name -->
+    <EditText
+        android:id="@+id/editTextName"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your name"
+        android:maxLength="18"
+        android:inputType="textPersonName" />
+
+    <!-- Age -->
+        <!-- Age -->
+        <EditText
+            android:id="@+id/editTextAge"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextName"
+            android:layout_marginTop="16dp"
+            android:hint="Enter your age"
+            android:inputType="none"
+            android:drawableEnd="@drawable/ic_appointment_icon"
+            android:onClick="showDatePicker" />
+
+
+        <!-- Blood Type -->
+    <EditText
+        android:id="@+id/editTextBloodType"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAge"
+        android:layout_marginTop="16dp"
+        android:hint="Enter your blood type"
+        android:inputType="text"
+        android:drawableEnd="@drawable/ic_down_arrow"/>
+
+    <!-- Address -->
+    <EditText
+        android:id="@+id/editTextAddress"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextBloodType"
+        android:layout_marginTop="16dp"
+        android:hint="Enter your address"
+        android:inputType="text" />
+
+    <!-- Contact -->
+    <EditText
+        android:id="@+id/editTextContact"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAddress"
+        android:layout_marginTop="16dp"
+        android:hint="Phone number"
+        android:inputType="phone"
+        android:maxLength="10"/>
+
+    </LinearLayout>
+
+    <!-- Submit Button -->
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/submit"
+        android:id="@+id/btnSubmit"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/details"
+        android:layout_marginTop="46dp"
+        android:text="Submit" />
+
+</RelativeLayout>

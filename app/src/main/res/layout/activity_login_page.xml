@@ -24,8 +24,9 @@
         >
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_width="250dp"
+            android:layout_height="300dp"
             android:src="@drawable/people"
             android:paddingBottom="90dp"/>
 
@@ -43,7 +44,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="440dp"
+            android:layout_height="510dp"
             android:orientation="vertical"
             android:padding="28dp">
             <TextView
@@ -63,6 +64,8 @@
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"/>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,11 +78,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:drawableEnd="@drawable/email"/>
+                android:drawablePadding="8dp"
+                android:paddingEnd="10dp"
+                android:drawableEnd="@drawable/email" />
 
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"/>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +100,8 @@
                 android:layout_height="wrap_content"
                 app:boxBackgroundMode="none"
                 app:endIconMode="password_toggle"
-                app:hintEnabled="false">
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
 
                 <EditText
                     android:id="@+id/password_edit_text"
@@ -110,7 +118,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:id="@+id/forgot_password"
@@ -126,32 +134,27 @@
             </RelativeLayout>
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+                android:layout_height="25dp"/>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <com.google.android.material.button.MaterialButton
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/login1"
                     android:id="@+id/login_button"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:text="Login"
-                    app:cornerRadius="32dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    />
+                    android:layout_width="270dp"
+                    android:layout_height="80dp" />
 
-                <com.google.android.material.button.MaterialButton
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/register1"
                     android:id="@+id/register"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:text="Register"
-                    app:cornerRadius="32dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardElevation="20dp"/>
+                    android:layout_width="270dp"
+                    android:layout_height="80dp"/>
 
             </LinearLayout>
 
