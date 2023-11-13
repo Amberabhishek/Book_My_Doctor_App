@@ -1,8 +1,9 @@
 package com.amber.bookmydoctor.Fragments;
 
-import static androidx.browser.customtabs.CustomTabsClient.getPackageName;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,9 +33,7 @@ public class ProfileFragment extends Fragment {
         editProfileCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to another page (e.g., replace the current fragment with a new one)
-                // You need to define the destination fragment and replace it accordingly.
-                // For example, if you have another fragment called EditProfileFragment:
+
                 EditProfileFragment editProfileFragment = new EditProfileFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, editProfileFragment); // Replace with the desired container
@@ -63,12 +62,18 @@ public class ProfileFragment extends Fragment {
         logoutCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the logout action, for example, clearing user session or data.
-                // Then, navigate to the Login page.
+                // Clear Firebase Authentication state
+                FirebaseAuth.getInstance().signOut();
+
+                // Clear the login status
+                SharedPreferences sharedPref = getActivity().getSharedPreferences("login_status", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isLoggedIn", false);
+                editor.apply();
 
                 Intent intent = new Intent(getActivity(), LoginPageActivity.class);
                 startActivity(intent);
-                getActivity().finish(); // Optional: Finish the current activity to prevent going back to the profile.
+                getActivity().finish(); // Finish the current activity
             }
         });
 
@@ -85,7 +90,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-/// Find the CardView in your code
+        // Find the CardView in your code
         CardView rateUsCardView = view.findViewById(R.id.rateUsCardView); // Replace with the actual ID
 
         // Set an OnClickListener for the CardView
@@ -102,7 +107,7 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
+
         return view;
     }
-
 }
