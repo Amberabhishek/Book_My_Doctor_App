@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.amber.bookmydoctor.AllActivity.GetStartedActivity;
 import com.amber.bookmydoctor.AllActivity.LoginPageActivity;
 import com.amber.bookmydoctor.ProfilePagesCards.EditPrescriptionActivity;
 import com.amber.bookmydoctor.ProfilePagesCards.EditProfileFragment;
@@ -71,7 +72,7 @@ public class ProfileFragment extends Fragment {
                 editor.putBoolean("isLoggedIn", false);
                 editor.apply();
 
-                Intent intent = new Intent(getActivity(), LoginPageActivity.class);
+                Intent intent = new Intent(getActivity(), GetStartedActivity.class);
                 startActivity(intent);
                 getActivity().finish(); // Finish the current activity
             }

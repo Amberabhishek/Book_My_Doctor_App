@@ -1,4 +1,4 @@
-package com.amber.bookmydoctor.AllActivity;
+package com.amber.bookmydoctor.AllActivity.LabTestsAllActivity;
 
 import android.os.Bundle;
 

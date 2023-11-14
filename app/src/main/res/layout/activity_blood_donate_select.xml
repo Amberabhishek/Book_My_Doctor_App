@@ -14,6 +14,7 @@
         android:src="@drawable/rect"/>
 
     <RelativeLayout
+        android:id="@+id/card_bld"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:elevation="8dp"
@@ -55,6 +56,7 @@
                     android:layout_marginBottom="12dp" />
 
                 <TextView
+                    android:id="@+id/bloodTypeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -67,12 +69,28 @@
             </FrameLayout>
         </RelativeLayout>
 
-
-
-
     </androidx.cardview.widget.CardView>
 
+
+
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/card_bld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/edit_form_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Form"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FB4336" />
+    </RelativeLayout>
+
 
 
     <LinearLayout

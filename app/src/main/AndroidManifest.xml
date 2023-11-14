@@ -46,15 +46,15 @@
         <activity android:name=".AllActivity.RecoveyPasswordActivity" />
         <activity android:name=".AllActivity.DashPageActivity" />
         <activity android:name=".AllActivity.CardActivity" />
-        <activity android:name=".AllActivity.BloodBankActivity" />
-        <activity android:name=".AllActivity.LabTestActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodRedButtonActivity" />
+        <activity android:name=".AllActivity.LabTestsAllActivity.LabTestActivity" />
         <activity android:name=".AllActivity.MedicineActivity" />
-        <activity android:name=".AllActivity.BloodBankPageActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodFormPageActivity" />
         <activity android:name=".AllActivity.GmailPageActivity" />
         <activity android:name=".AllActivity.EmailVerificationActivity" />
-        <activity android:name=".AllActivity.DonateChoiceActivity" />
-        <activity android:name=".AllActivity.BloodDonorActivity" />
-        <activity android:name=".AllActivity.BloodLocationActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodDonateChoiceActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodGroupSelectActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodHospitalLocationActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

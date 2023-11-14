@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,12 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class DashPageActivity extends AppCompatActivity {
 
@@ -67,10 +75,64 @@ public class DashPageActivity extends AppCompatActivity {
         }
     }
 
+    private void fetchUserDataFromFirebase() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
+
+            userRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        String userName = dataSnapshot.child("name").getValue(String.class);
+                        String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+
+                        // Fetch email from Firebase Authentication
+                        String userEmail = currentUser.getEmail();
+
+                        // Update UI with the retrieved data
+                        updateUserInfo(userName, imageUrl, userEmail);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle errors
+                    Log.e("DashPageActivity", "Failed to fetch user data", databaseError.toException());
+                }
+            });
+        }
+    }
+
+    private void updateUserInfo(String userName, String imageUrl, String userEmail) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Update the UI with the retrieved user data
+                TextView navUserNameTextView = findViewById(R.id.nav_user_name);
+                navUserNameTextView.setText(userName);
+
+                ImageView navProfileImageView = findViewById(R.id.nav_profile_image);
+                // Load the user image into the ImageView using a library like Picasso or Glide
+                // Example using Picasso:
+                Picasso.get().load(imageUrl).placeholder(R.drawable.ic_person_icon).into(navProfileImageView);
+
+                // Update user email
+                TextView navUserEmailTextView = findViewById(R.id.nav_user_email);
+                navUserEmailTextView.setText(userEmail);
+            }
+        });
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
+
+        // Fetch user data from Firebase and update UI
+        fetchUserDataFromFirebase();
 
         homeFragment = new HomeFragment();
         appointmentFragment = new AppointmentFragment();
@@ -152,7 +214,7 @@ public class DashPageActivity extends AppCompatActivity {
                 } else if (itemId == R.id.nav_help) {
                     openGmailForFeedback();
                 } else if (itemId == R.id.nav_logout) {
-                    Intent intent = new Intent(DashPageActivity.this, DoctorDashActivity.class);
+                    Intent intent = new Intent(DashPageActivity.this, GetStartedActivity.class);
                     startActivity(intent);
                     finish();
                     logoutUser();

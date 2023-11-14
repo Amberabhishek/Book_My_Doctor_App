@@ -354,7 +354,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/girl"/>
+                        android:src="@drawable/flip1"/>
 
                     <ImageView
                         android:layout_width="match_parent"

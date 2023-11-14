@@ -105,7 +105,7 @@ public class LoginPageActivity extends Activity {
                             Toast.makeText(LoginPageActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
                         } else {
                             // Login failed, display an error message
-                            Toast.makeText(LoginPageActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPageActivity.this, "Login failed. Please check your detials.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -11,6 +11,6 @@ public class EditPrescriptionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_prescription);
+        setContentView(R.layout.profile_edit_prescription);
     }
 }

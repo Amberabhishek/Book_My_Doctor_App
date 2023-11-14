@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish(); // This prevents the user from going back to the login and get started screens
             } else {
-                Intent intent = new Intent(this, LoginPageActivity.class);
+                Intent intent = new Intent(this, GetStartedActivity.class);
                 startActivity(intent);
                 finish();
             }

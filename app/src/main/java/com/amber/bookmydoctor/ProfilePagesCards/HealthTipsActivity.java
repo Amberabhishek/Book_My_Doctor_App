@@ -11,6 +11,6 @@ public class HealthTipsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_health_tips);
+        setContentView(R.layout.profile_health_tips);
     }
 }

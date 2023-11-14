@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import com.amber.bookmydoctor.AllActivity.BloodBankActivity;
+import com.amber.bookmydoctor.AllActivity.BloodBankAllActivity.BloodRedButtonActivity;
 import com.amber.bookmydoctor.AllActivity.CardActivity;
-import com.amber.bookmydoctor.AllActivity.LabTestActivity;
+import com.amber.bookmydoctor.AllActivity.LabTestsAllActivity.LabTestActivity;
 import com.amber.bookmydoctor.AllActivity.MedicineActivity;
 import com.amber.bookmydoctor.R;
 
@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment {
 
         // Call the setupCardClickListener method for each CardView you want to click on
         setupCardClickListener(R.id.first_card, CardActivity.class);
-        setupCardClickListener(R.id.imageCard, BloodBankActivity.class);
+        setupCardClickListener(R.id.imageCard, BloodRedButtonActivity.class);
         setupCardClickListener(R.id.videoCard, LabTestActivity.class);
         setupCardClickListener(R.id.audioCard, MedicineActivity.class);
 
