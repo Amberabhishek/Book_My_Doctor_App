@@ -81,7 +81,7 @@ public class DashPageActivity extends AppCompatActivity {
             String userId = currentUser.getUid();
             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
 
-            userRef.addValueEventListener(new ValueEventListener() {
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
@@ -109,10 +109,12 @@ public class DashPageActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
                 // Update the UI with the retrieved user data
                 TextView navUserNameTextView = findViewById(R.id.nav_user_name);
-                navUserNameTextView.setText(userName);
-
+                if (navUserNameTextView != null) {
+                    navUserNameTextView.setText(userName);
+                }
                 ImageView navProfileImageView = findViewById(R.id.nav_profile_image);
                 // Load the user image into the ImageView using a library like Picasso or Glide
                 // Example using Picasso:

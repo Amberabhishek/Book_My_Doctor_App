@@ -33,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import java.util.Calendar;
 
 public class EditProfileFragment extends Fragment {
@@ -142,38 +143,49 @@ public class EditProfileFragment extends Fragment {
             UploadTask uploadTask = storageRef.putFile(selectedImageUri);
 
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
-                        public void onSuccess(Uri downloadUri) {
-                            String imageUrl = downloadUri.toString();
-                            User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, imageUrl);
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri downloadUri) {
+                                    String imageUrl = downloadUri.toString();
+                                    User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, imageUrl);
 
-                            userRef.setValue(user)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Toast.makeText(requireContext(), "Profile Saved Successfully", Toast.LENGTH_SHORT).show();
-                                            Fragment profileFragment = new ProfileFragment();
-                                            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                                            transaction.replace(R.id.fragment_container, profileFragment);
-                                            transaction.addToBackStack(null);
-                                            transaction.commit();
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(requireContext(), "Failed to save profile", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                    userRef.setValue(user)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Toast.makeText(requireContext(), "Profile Saved Successfully", Toast.LENGTH_SHORT).show();
+                                                    Fragment profileFragment = new ProfileFragment();
+                                                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                                                    transaction.replace(R.id.fragment_container, profileFragment);
+                                                    transaction.addToBackStack(null);
+                                                    transaction.commit();
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(requireContext(), "Failed to save profile", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(requireContext(), "Failed to upload image", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
-            });
+
         } else {
-            User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, "");
+            // If no image is selected, use a default image URL
+            String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/book-my-doctor-db7a3.appspot.com/o/profile_images%2FIQEHbVJCHhMkKTsyw6XUeWJE9Wi2.jpg?alt=media&token=5603f4b6-7417-45c4-922a-e85099803633"; // Replace with your default image URL
+
+            User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, defaultImageUrl);
+
             userRef.setValue(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

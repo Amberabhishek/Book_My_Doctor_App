@@ -37,7 +37,7 @@
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:text="User Name" />
+        android:text="User_Name" />
 
     <TextView
         android:id="@+id/nav_user_email"
