@@ -8,9 +8,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -33,6 +35,8 @@ public class BloodFormPageActivity extends AppCompatActivity {
     private EditText editTextName, editTextAge, editTextBloodType, editTextAddress, editTextContact;
     private DatabaseReference databaseReference;
 
+    private Spinner genderSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +51,13 @@ public class BloodFormPageActivity extends AppCompatActivity {
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextContact = findViewById(R.id.editTextContact);
 
+        genderSpinner = findViewById(R.id.spinner);
+
         ImageView btnSubmit = findViewById(R.id.btnSubmit);
-        // Inside the btnSubmit OnClickListener in BloodBankPageActivity
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (validateForm()) {
-                    // All fields are filled, perform submission logic here
                     saveUserData();
                     showToast("Submit successful!");
 
@@ -62,8 +66,6 @@ public class BloodFormPageActivity extends AppCompatActivity {
                     editor.putBoolean("isLoggedIn", true);
                     editor.apply();
 
-
-                    // Pass blood type information to DonateChoiceActivity
                     Intent intent = new Intent(BloodFormPageActivity.this, BloodDonateChoiceActivity.class);
                     intent.putExtra("bloodType", editTextBloodType.getText().toString());
                     startActivity(intent);
@@ -71,10 +73,18 @@ public class BloodFormPageActivity extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.spinner_data,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(adapter);
+
         editTextAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDatePicker(view);
+                showDatePicker();
             }
         });
 
@@ -112,26 +122,24 @@ public class BloodFormPageActivity extends AppCompatActivity {
 
     private void saveUserData() {
         String name = editTextName.getText().toString().trim();
-        String dob = editTextAge.getText().toString().trim(); // Assuming dob is in the format "dd/MM/yyyy"
+        String dob = editTextAge.getText().toString().trim();
         String bloodType = editTextBloodType.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();
+        String gender = genderSpinner.getSelectedItem().toString();
 
-        // Calculate age based on the current date
         int age = calculateAge(dob);
 
-        // Create a unique ID for the user
         String userId = databaseReference.push().getKey();
 
-        // Create a map to store user details
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("name", name);
-        userMap.put("age", age); // Store the calculated age
+        userMap.put("age", age);
         userMap.put("bloodType", bloodType);
         userMap.put("address", address);
         userMap.put("contact", contact);
+        userMap.put("gender", gender);
 
-        // Save user details to Firebase
         databaseReference.child(userId).setValue(userMap);
     }
 
@@ -145,7 +153,6 @@ public class BloodFormPageActivity extends AppCompatActivity {
 
             int age = today.get(Calendar.YEAR) - birthCalendar.get(Calendar.YEAR);
 
-            // Adjust age if the birth date hasn't occurred yet this year
             if (today.get(Calendar.DAY_OF_YEAR) < birthCalendar.get(Calendar.DAY_OF_YEAR)) {
                 age--;
             }
@@ -153,12 +160,11 @@ public class BloodFormPageActivity extends AppCompatActivity {
             return age;
         } catch (ParseException e) {
             e.printStackTrace();
-            return 0; // Return 0 in case of an error
+            return 0;
         }
     }
 
-
-    private void showDatePicker(View view) {
+    private void showDatePicker() {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
@@ -192,12 +198,10 @@ public class BloodFormPageActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int which) {
                         String selectedBloodType = bloodTypes[which];
                         editTextBloodType.setText(selectedBloodType);
-
                     }
                 });
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
 }

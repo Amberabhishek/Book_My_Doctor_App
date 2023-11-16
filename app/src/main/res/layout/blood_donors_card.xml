@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/grid_red_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:elevation="4dp"
+            app:cardMaxElevation="12dp"
+            android:layout_margin="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <!-- Blood Group -->
+                <TextView
+                    android:id="@+id/bloodGroupTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blood Group: A+"
+                    android:textSize="18sp"
+                    android:textColor="#F44336"
+                    android:textStyle="bold" />
+
+                <!-- Name -->
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_below="@id/bloodGroupTextView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: John Doe"
+                    android:textSize="16sp" />
+
+                <!-- Age -->
+                <TextView
+                    android:id="@+id/ageTextView"
+                    android:layout_below="@id/nameTextView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Age: 25"
+                    android:textSize="16sp" />
+
+                <!-- Phone Number -->
+                <TextView
+                    android:id="@+id/phoneTextView"
+                    android:layout_below="@id/ageTextView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone: +1234567890"
+                    android:textSize="16sp" />
+
+                <!-- Gender -->
+                <TextView
+                    android:id="@+id/genderTextView"
+                    android:layout_below="@id/phoneTextView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender: Male"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Add more content if needed -->
+
+    </LinearLayout>
+
+
+</ScrollView>

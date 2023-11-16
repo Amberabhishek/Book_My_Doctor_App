@@ -55,6 +55,7 @@
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodDonateChoiceActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodGroupSelectActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodHospitalLocationActivity" />
+        <activity android:name=".AllActivity.BloodBankAllActivity.BloodDonorsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
