@@ -13,12 +13,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amber.bookmydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,7 +57,48 @@ public class BloodFormPageActivity extends AppCompatActivity {
         genderSpinner = findViewById(R.id.spinner);
 
         ImageView btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+
+        // Check if the user is authenticated
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userUid = currentUser.getUid();
+
+            // Retrieve user data from Firebase
+            databaseReference.child("user_details").child(userUid).get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    if (task.getResult() != null && task.getResult().getValue() != null) {
+                        // User data exists, update UI
+                        Map<String, Object> userData = (Map<String, Object>) task.getResult().getValue();
+
+                        // Check for null before setting values
+                        editTextName.setText(String.valueOf(userData.get("name")));
+                        editTextAge.setText(String.valueOf(userData.get("age")));
+                        editTextBloodType.setText(String.valueOf(userData.get("bloodType")));
+                        editTextAddress.setText(String.valueOf(userData.get("address")));
+                        editTextContact.setText(String.valueOf(userData.get("contact")));
+
+                        // Set genderSpinner selection based on userData or a default value
+                        String userGender = String.valueOf(userData.get("gender"));
+                        setGenderSpinnerSelection(userGender);
+
+                        // You may need to set the genderSpinner selection based on userData
+                    } else {
+                        // Clear fields if data is null
+                        editTextName.setText("");
+                        editTextAge.setText("");
+                        editTextBloodType.setText("");
+                        editTextAddress.setText("");
+                        editTextContact.setText("");
+
+                        // Set default selection for genderSpinner or clear it based on your requirement
+                        setGenderSpinnerDefaultSelection();
+                    }
+                }
+            });
+
+        }
+
+            btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (validateForm()) {
@@ -96,6 +140,19 @@ public class BloodFormPageActivity extends AppCompatActivity {
         });
     }
 
+    private Void setGenderSpinnerDefaultSelection() {
+        return null;
+    }
+
+    private void setGenderSpinnerSelection(String userGender) {
+        if (!TextUtils.isEmpty(userGender)) {
+            // Find the index of userGender in the array of genders and set the selection
+            ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) genderSpinner.getAdapter();
+            int position = adapter.getPosition(userGender);
+            genderSpinner.setSelection(position);
+        }
+    }
+
     private boolean validateForm() {
         if (TextUtils.isEmpty(editTextName.getText())
                 || TextUtils.isEmpty(editTextAge.getText())
@@ -130,7 +187,24 @@ public class BloodFormPageActivity extends AppCompatActivity {
 
         int age = calculateAge(dob);
 
-        String userId = databaseReference.push().getKey();
+        // Get the current user's UID from Firebase Authentication
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            // Handle the case where the user is not authenticated
+            showToast("User not authenticated");
+            return;
+        }
+
+        String userUid = currentUser.getUid();
+
+        if (TextUtils.isEmpty(userUid)) {
+            // Handle the case where the user's UID is empty
+            showToast("User UID is empty");
+            return;
+        }
+
+        // Use the user's UID as a unique identifier
+        DatabaseReference userRef = databaseReference.child("user_details").child(userUid);
 
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("name", name);
@@ -140,7 +214,8 @@ public class BloodFormPageActivity extends AppCompatActivity {
         userMap.put("contact", contact);
         userMap.put("gender", gender);
 
-        databaseReference.child(userId).setValue(userMap);
+        // Update the existing user details for the specific UID
+        userRef.setValue(userMap);
     }
 
     private int calculateAge(String dob) {

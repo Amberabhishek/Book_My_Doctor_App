@@ -17,7 +17,7 @@
         android:text="Fill Your Details"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:textSize="25sp"
         android:gravity="center"/>
 
@@ -28,75 +28,138 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_bld"
         android:orientation="vertical"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="30dp">
 
-    <!-- Name -->
-    <EditText
-        android:id="@+id/editTextName"
-        style="@style/EditTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your name"
-        android:maxLength="18"
-        android:inputType="textPersonName" />
+        <!-- Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
 
-    <!-- Age -->
-        <!-- Age -->
         <EditText
-            android:id="@+id/editTextAge"
+            android:id="@+id/editTextName"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextName"
-            android:layout_marginTop="16dp"
-            android:hint="Enter your age"
-            android:inputType="number"
-            android:drawableEnd="@drawable/ic_appointment_icon"
-            android:onClick="showDatePicker" />
+            android:hint="Enter your name"
+            android:maxLength="18"
+            android:inputType="textPersonName" />
 
-
-        <!-- Blood Type -->
-    <EditText
-        android:id="@+id/editTextBloodType"
-        style="@style/EditTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAge"
-        android:layout_marginTop="16dp"
-        android:hint="Enter your blood type"
-        android:inputType="text"
-        android:drawableEnd="@drawable/ic_down_arrow"/>
-
-    <!-- Address -->
-    <EditText
-        android:id="@+id/editTextAddress"
-        style="@style/EditTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextBloodType"
-        android:layout_marginTop="16dp"
-        android:hint="Enter your address"
-        android:inputType="text" />
-
-    <!-- Contact -->
-    <EditText
-        android:id="@+id/editTextContact"
-        style="@style/EditTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAddress"
-        android:layout_marginTop="16dp"
-        android:hint="Phone number"
-        android:inputType="phone"
-        android:maxLength="10"/>
-
+        <!-- Age -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/editTextGender"
+            android:id="@+id/cardViewAge"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="4dp">
+
+            <EditText
+                android:id="@+id/editTextAge"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Enter your age"
+                android:inputType="number"
+                android:drawableEnd="@drawable/ic_appointment_icon"
+                android:focusable="false"
+                android:onClick="showDatePicker" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Blood Type -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blood Type"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBloodType"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="4dp">
+
+            <EditText
+                android:id="@+id/editTextBloodType"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Enter your blood type"
+                android:inputType="text"
+                android:drawableEnd="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:onClick="showBloodTypeDialog" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Address -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextBloodType"
+            android:layout_marginTop="4dp"
+            android:hint="Enter your address"
+            android:inputType="text" />
+
+        <!-- Contact -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/editTextContact"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextAddress"
+            android:layout_marginTop="4dp"
+            android:hint="Phone number"
+            android:inputType="phone"
+            android:maxLength="10"/>
+
+        <!-- Gender Spinner -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="4dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewGender"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             app:cardCornerRadius="5dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="4dp">
 
             <Spinner
                 android:id="@+id/spinner"
@@ -104,7 +167,6 @@
                 android:layout_height="match_parent">
             </Spinner>
         </androidx.cardview.widget.CardView>
-
 
     </LinearLayout>
 
