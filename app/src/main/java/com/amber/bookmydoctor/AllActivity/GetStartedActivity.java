@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.amber.bookmydoctor.AllActivity.DoctorAllActivity.DoctorLoginPageActivity;
 import com.amber.bookmydoctor.R;
 
 public class GetStartedActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class GetStartedActivity extends AppCompatActivity {
 
     public void onDoctorClick(View view) {
         // Create an intent to open the DoctorDashActivity
-        Intent intent = new Intent(this, DoctorDashActivity.class);
+        Intent intent = new Intent(this, DoctorLoginPageActivity.class);
         startActivity(intent);
         finish();
     }

@@ -1,7 +1,5 @@
 package com.amber.bookmydoctor;
 
-import static android.view.LayoutInflater.from;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +26,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_hospital, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_hospital_locations, parent, false);
         return new ViewHolder(view);
     }
 

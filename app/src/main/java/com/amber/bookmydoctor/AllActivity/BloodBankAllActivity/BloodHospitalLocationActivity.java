@@ -4,24 +4,20 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.amber.bookmydoctor.LocationClient;
+import com.amber.bookmydoctor.Fragments.HospitalFragment;
 import com.amber.bookmydoctor.R;
 
 public class BloodHospitalLocationActivity extends AppCompatActivity {
 
-    LocationClient locationClient;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.card_hospital);
+        setContentView(R.layout.blood_location_card_hospital);
+
+        HospitalFragment hospitalFragment = new HospitalFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, hospitalFragment).commit();
 
 
-
-        LocationClient lc = locationClient;
-        lc.locationsender();
-        lc.nearbySearcher();
-
-    }
-
+}
 }

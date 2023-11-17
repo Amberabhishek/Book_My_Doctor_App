@@ -28,7 +28,7 @@
 
 
         <FrameLayout
-            android:id="@+id/fragment_container"
+            android:id="@+id/doctor_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar"
@@ -38,16 +38,15 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/navigation_menu"
             android:layout_alignParentBottom="true"
-            android:background="#F1FFFC"
-            app:elevation="2dp"/>
-
+            android:background="@drawable/selector_bottom_navigation_item"
+            app:elevation="8dp"/>
 
 
     </RelativeLayout>
@@ -59,7 +58,9 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/navigation_top"/>
+        app:menu="@menu/navigation_top"
+        />
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

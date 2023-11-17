@@ -13,7 +13,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -46,7 +45,7 @@ public class BloodFormPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blood_detail_form);
 
         // Initialize Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("user_details");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("blood_details");
 
         editTextName = findViewById(R.id.editTextName);
         editTextAge = findViewById(R.id.editTextAge);
@@ -64,7 +63,7 @@ public class BloodFormPageActivity extends AppCompatActivity {
             String userUid = currentUser.getUid();
 
             // Retrieve user data from Firebase
-            databaseReference.child("user_details").child(userUid).get().addOnCompleteListener(task -> {
+            databaseReference.child(userUid).get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     if (task.getResult() != null && task.getResult().getValue() != null) {
                         // User data exists, update UI
@@ -80,40 +79,30 @@ public class BloodFormPageActivity extends AppCompatActivity {
                         // Set genderSpinner selection based on userData or a default value
                         String userGender = String.valueOf(userData.get("gender"));
                         setGenderSpinnerSelection(userGender);
-
-                        // You may need to set the genderSpinner selection based on userData
                     } else {
                         // Clear fields if data is null
-                        editTextName.setText("");
-                        editTextAge.setText("");
-                        editTextBloodType.setText("");
-                        editTextAddress.setText("");
-                        editTextContact.setText("");
+                        clearFields();
 
                         // Set default selection for genderSpinner or clear it based on your requirement
                         setGenderSpinnerDefaultSelection();
                     }
                 }
             });
-
         }
 
-            btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (validateForm()) {
-                    saveUserData();
-                    showToast("Submit successful!");
+        btnSubmit.setOnClickListener(view -> {
+            if (validateForm()) {
+                saveUserData();
+                showToast("Submit successful!");
 
-                    SharedPreferences sharedPref = getSharedPreferences("blood_register_status", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putBoolean("isLoggedIn", true);
-                    editor.apply();
+                SharedPreferences sharedPref = getSharedPreferences("blood_register_status", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
 
-                    Intent intent = new Intent(BloodFormPageActivity.this, BloodDonateChoiceActivity.class);
-                    intent.putExtra("bloodType", editTextBloodType.getText().toString());
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(BloodFormPageActivity.this, BloodDonateChoiceActivity.class);
+                intent.putExtra("bloodType", editTextBloodType.getText().toString());
+                startActivity(intent);
             }
         });
 
@@ -125,23 +114,21 @@ public class BloodFormPageActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(adapter);
 
-        editTextAge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDatePicker();
-            }
-        });
+        editTextAge.setOnClickListener(view -> showDatePicker());
 
-        editTextBloodType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBloodTypeDialog();
-            }
-        });
+        editTextBloodType.setOnClickListener(view -> showBloodTypeDialog());
     }
 
-    private Void setGenderSpinnerDefaultSelection() {
-        return null;
+    private void clearFields() {
+        editTextName.setText("");
+        editTextAge.setText("");
+        editTextBloodType.setText("");
+        editTextAddress.setText("");
+        editTextContact.setText("");
+    }
+
+    private void setGenderSpinnerDefaultSelection() {
+        genderSpinner.setSelection(0); // Set your default selection index
     }
 
     private void setGenderSpinnerSelection(String userGender) {
@@ -204,7 +191,7 @@ public class BloodFormPageActivity extends AppCompatActivity {
         }
 
         // Use the user's UID as a unique identifier
-        DatabaseReference userRef = databaseReference.child("user_details").child(userUid);
+        DatabaseReference userRef = databaseReference.child(userUid);
 
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("name", name);
@@ -214,8 +201,8 @@ public class BloodFormPageActivity extends AppCompatActivity {
         userMap.put("contact", contact);
         userMap.put("gender", gender);
 
-        // Update the existing user details for the specific UID
-        userRef.setValue(userMap);
+        // Update only the specified fields without overwriting the existing data
+        userRef.updateChildren(userMap);
     }
 
     private int calculateAge(String dob) {
@@ -247,12 +234,8 @@ public class BloodFormPageActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        editTextAge.setText(day + "/" + (month + 1) + "/" + year);
-                    }
-                },
+                (datePicker, iyear, imonth, iday) ->
+                        editTextAge.setText(iday + "/" + (imonth + 1) + "/" + iyear),
                 year,
                 month,
                 day
@@ -268,13 +251,8 @@ public class BloodFormPageActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select your blood type")
-                .setItems(bloodTypes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        String selectedBloodType = bloodTypes[which];
-                        editTextBloodType.setText(selectedBloodType);
-                    }
-                });
+                .setItems(bloodTypes, (dialogInterface, which) ->
+                        editTextBloodType.setText(bloodTypes[which]));
 
         AlertDialog dialog = builder.create();
         dialog.show();

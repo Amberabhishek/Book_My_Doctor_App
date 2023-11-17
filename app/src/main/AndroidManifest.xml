@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
         <activity
+            android:name=".AllActivity.DoctorAllActivity.DoctorRegisterPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.DoctorAllActivity.DoctorLoginPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".Fragments.HospitalDetailsActivity"
             android:exported="false" />
         <activity

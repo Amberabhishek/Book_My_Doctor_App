@@ -2,18 +2,18 @@ package com.amber.bookmydoctor.AllActivity.BloodBankAllActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.amber.bookmydoctor.AllActivity.DashPageActivity;
 import com.amber.bookmydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class BloodDonateChoiceActivity extends AppCompatActivity {
 
-    private static final String BLOOD_TYPE_PREF_KEY = "bloodTypePref";
     private DatabaseReference databaseReference;
 
     private TextView bloodTypeTextView;
@@ -33,7 +32,7 @@ public class BloodDonateChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blood_donate_select);
 
         // Initialize Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("user_details");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("blood_details");
 
         bloodTypeTextView = findViewById(R.id.bloodTypeTextView);
 
@@ -45,16 +44,11 @@ public class BloodDonateChoiceActivity extends AppCompatActivity {
             // If saved blood type is empty, use the selected blood type
             bloodTypeTextView.setText(selectedBloodType);
 
-            // Save the selected blood type to SharedPreferences
-            saveBloodType(selectedBloodType);
+            // Save the selected blood type to Firebase
+            saveBloodTypeToFirebase(selectedBloodType);
         } else {
-            // Retrieve the saved blood type from SharedPreferences
-            String savedBloodType = getSavedBloodType();
-
-            // Set the blood type on the TextView
-            if (!TextUtils.isEmpty(savedBloodType)) {
-                bloodTypeTextView.setText(savedBloodType);
-            }
+            // Retrieve the saved blood type from Firebase
+            retrieveBloodTypeFromFirebase();
         }
 
         ImageView donarsImageView = findViewById(R.id.donars);
@@ -93,22 +87,14 @@ public class BloodDonateChoiceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        // Retrieve data from Firebase
-        retrieveDataFromFirebase();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        // Retrieve the saved blood type from SharedPreferences
-        String savedBloodType = getSavedBloodType();
-
-        // Set the blood type on the TextView
-        if (!TextUtils.isEmpty(savedBloodType)) {
-            bloodTypeTextView.setText(savedBloodType);
-        }
+        // Retrieve the saved blood type from Firebase
+        retrieveBloodTypeFromFirebase();
     }
 
     @Override
@@ -121,47 +107,43 @@ public class BloodDonateChoiceActivity extends AppCompatActivity {
         finish();
     }
 
-    private String getSavedBloodType() {
-        SharedPreferences sharedPref = getSharedPreferences(BLOOD_TYPE_PREF_KEY, Context.MODE_PRIVATE);
-        String bloodType = sharedPref.getString("bloodType", "");
+    private void retrieveBloodTypeFromFirebase() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userUid = currentUser.getUid();
 
-        // After retrieving blood type
-        Log.d("BloodTypeChange", "Retrieved blood type: " + bloodType);
+            databaseReference.child(userUid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // Retrieve blood type from Firebase
+                        String bloodTypeFromFirebase = dataSnapshot.child("bloodType").getValue(String.class);
 
-        return bloodType;
-    }
+                        // Set the retrieved blood type on the TextView
+                        if (!TextUtils.isEmpty(bloodTypeFromFirebase)) {
+                            bloodTypeTextView.setText(bloodTypeFromFirebase);
 
-    private void saveBloodType(String bloodType) {
-        SharedPreferences sharedPref = getSharedPreferences(BLOOD_TYPE_PREF_KEY, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("bloodType", bloodType);
-        editor.apply();
-    }
-
-    private void retrieveDataFromFirebase() {
-        // Assuming "user_details" is the node in your database
-        databaseReference.child("user_details").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method will be called once with the data from the database.
-                if (dataSnapshot.exists()) {
-                    // Get the data and update the UI as needed
-                    String bloodTypeFromFirebase = dataSnapshot.child("bloodType").getValue(String.class);
-
-                    // Set the retrieved blood type on the TextView
-                    if (!TextUtils.isEmpty(bloodTypeFromFirebase)) {
-                        bloodTypeTextView.setText(bloodTypeFromFirebase);
-
-                        // After retrieving blood type from Firebase
-                        Log.d("BloodTypeChange", "Retrieved blood type from Firebase: " + bloodTypeFromFirebase);
+                            // After retrieving blood type from Firebase
+                            Log.d("BloodTypeChange", "Retrieved blood type from Firebase: " + bloodTypeFromFirebase);
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle possible errors.
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle possible errors.
+                }
+            });
+        }
+    }
+
+    private void saveBloodTypeToFirebase(String bloodType) {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userUid = currentUser.getUid();
+
+            // Save the selected blood type to Firebase
+            databaseReference.child(userUid).child("bloodType").setValue(bloodType);
+        }
     }
 }
