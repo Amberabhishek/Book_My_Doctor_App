@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grid_red_color">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="10dp"
+        android:layout_margin="12dp">
+
+        <RelativeLayout
+            android:id="@+id/img_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/dr_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/app_name"
+                android:padding="5dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toEndOf="@id/dr_image"
+                android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/dr_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="Doctor name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/speciality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hospital_name"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="2dp"
+                android:textSize="16sp"
+                android:text="spaciality" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="22dp">
+
+            <ImageView
+                android:id="@+id/message"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_sms_icon"/>
+
+                <ImageView
+                    android:id="@+id/call"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/ic_caller_icon"/>
+
+                <ImageView
+                    android:id="@+id/vc"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/ic_video_call_icon"/>
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/abt_dr"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:layout_margin="12dp"
+            android:layout_below="@+id/text">
+
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/doctor_about"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Doctor's about"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/abt_dr"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Star 1 -->
+                <ImageView
+                    android:id="@+id/star1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rate_us"
+                android:clickable="true"
+                android:onClick="onStarClick" />
+
+                <!-- Star 2 -->
+                <ImageView
+                    android:id="@+id/star2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/star1"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rate_us"
+                    android:clickable="true"
+                    android:onClick="onStarClick" />
+
+                <!-- Star 3 -->
+                <ImageView
+                    android:id="@+id/star3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/star2"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rate_us"
+                    android:clickable="true"
+                    android:onClick="onStarClick" />
+
+                <!-- Star 4 -->
+                <ImageView
+                    android:id="@+id/star4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/star3"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rate_us"
+                    android:clickable="true"
+                    android:onClick="onStarClick" />
+
+                <!-- Star 5 -->
+                <ImageView
+                    android:id="@+id/star5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/star4"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rate_us"
+                    android:clickable="true"
+                    android:onClick="onStarClick" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btn_book"
+                android:layout_width="270dp"
+                android:layout_height="60dp"
+                android:src="@drawable/book"
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

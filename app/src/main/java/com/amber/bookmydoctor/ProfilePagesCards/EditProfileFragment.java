@@ -28,11 +28,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 
@@ -84,6 +86,9 @@ public class EditProfileFragment extends Fragment {
                 openGallery();
             }
         });
+
+        // Load user data from Firebase when the fragment is created
+        loadProfileDataFromFirebase();
 
         return view;
     }
@@ -205,5 +210,38 @@ public class EditProfileFragment extends Fragment {
                         }
                     });
         }
+    }
+
+    private void loadProfileDataFromFirebase() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(currentUser.getUid());
+
+        userRef.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    User user = dataSnapshot.getValue(User.class);
+
+                    // Populate the form with user data
+                    nameEditText.setText(user.getName());
+                    phoneNumberEditText.setText(user.getPhoneNumber());
+                    dateOfBirthButton.setText(user.getDateOfBirth());
+
+                    // Set the selected item in the gender spinner
+                    ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) genderSpinner.getAdapter();
+                    if (adapter != null) {
+                        int position = adapter.getPosition(user.getGender());
+                        genderSpinner.setSelection(position);
+                    }
+                    // Load and display the user's profile image using Picasso
+                    Picasso.get().load(user.getImageUrl()).into(profileImage);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(requireContext(), "Failed to load profile data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

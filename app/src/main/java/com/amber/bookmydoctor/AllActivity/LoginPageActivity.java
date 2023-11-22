@@ -2,6 +2,7 @@ package com.amber.bookmydoctor.AllActivity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.amber.bookmydoctor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +24,7 @@ import com.google.android.gms.tasks.Task;
 public class LoginPageActivity extends Activity {
 
     EditText emailEditText, passwordEditText;
-    ImageView loginButton, registerButton;
+    ImageView loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +57,7 @@ public class LoginPageActivity extends Activity {
         forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start the password recovery activity
-                Intent passwordRecoveryIntent = new Intent(LoginPageActivity.this, ForgotPageActivity.class);
-                startActivity(passwordRecoveryIntent);
+                showForgotPasswordDialog();
             }
         });
 
@@ -74,8 +75,51 @@ public class LoginPageActivity extends Activity {
         });
     }
 
-    private void loginUser(String email, String password) {
+    private void showForgotPasswordDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Forgot Password");
+        builder.setMessage("Enter your email:");
 
+        // Set up the input
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String email = input.getText().toString();
+                sendOtpByEmail(email);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void sendOtpByEmail(String email) {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // Password reset email sent successfully
+                            Toast.makeText(LoginPageActivity.this, "OTP sent to your email.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If the email address is not registered or other issues
+                            Toast.makeText(LoginPageActivity.this, "Failed to send OTP. Check your email address.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
+    private void loginUser(String email, String password) {
         // Validate email and password
         if (email.isEmpty() || password.isEmpty()) {
             // Email or password is empty, display an error message
@@ -90,7 +134,6 @@ public class LoginPageActivity extends Activity {
                     @Override
                     public void onComplete(Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
                             // Login successful, store the user's login status
                             SharedPreferences sharedPref = getSharedPreferences("login_status", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
@@ -105,7 +148,7 @@ public class LoginPageActivity extends Activity {
                             Toast.makeText(LoginPageActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
                         } else {
                             // Login failed, display an error message
-                            Toast.makeText(LoginPageActivity.this, "Login failed. Please check your detials.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPageActivity.this, "Login failed. Please check your details.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
