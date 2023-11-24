@@ -10,11 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.amber.bookmydoctor.AllActivity.DoctorDashActivity;
 import com.amber.bookmydoctor.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -78,7 +76,7 @@ public class DoctorLoginPageActivity extends AppCompatActivity {
                                 // Check the user's role from Firebase Realtime Database
                                 // Assuming you have a "role" field in your user data
                                 // Adjust the database reference according to your data structure
-                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("doctor").child(userId);
                                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

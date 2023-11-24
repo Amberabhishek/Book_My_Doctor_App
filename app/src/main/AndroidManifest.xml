@@ -43,7 +43,7 @@
         </activity>
         <activity android:name=".AllActivity.MainActivity" />
         <activity android:name=".AllActivity.GetStartedActivity" />
-        <activity android:name=".AllActivity.DoctorDashActivity" />
+        <activity android:name=".AllActivity.DoctorAllActivity.DoctorDashActivity" />
         <activity android:name=".AllActivity.LoginPageActivity" />
         <activity android:name=".AllActivity.RegisterActivity" />
         <activity android:name=".AllActivity.PhonePageActivity" />
@@ -62,6 +62,8 @@
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodGroupSelectActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodHospitalLocationActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodDonorsActivity" />
+        <activity android:name=".AllActivity.DoctorAllActivity.DoctorDetailsForm" />
+        <activity android:name=".AllActivity.PatientBookingActivity.ApointmentBookingActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

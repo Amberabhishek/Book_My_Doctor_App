@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class LoginPageActivity extends Activity {
 
@@ -118,6 +119,29 @@ public class LoginPageActivity extends Activity {
                 });
     }
 
+    private void checkEmailRegistration(final String email) {
+        FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                    @Override
+                    public void onComplete(Task<SignInMethodQueryResult> task) {
+                        if (task.isSuccessful()) {
+                            SignInMethodQueryResult result = task.getResult();
+
+                            if (result != null && result.getSignInMethods() != null
+                                    && result.getSignInMethods().isEmpty()) {
+                                // Email is not registered
+                                Toast.makeText(LoginPageActivity.this, "Email is not registered.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Email is registered, send OTP
+                                sendOtpByEmail(email);
+                            }
+                        } else {
+                            // Handle the task failure
+                            Toast.makeText(LoginPageActivity.this, "Failed to check email registration.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 
     private void loginUser(String email, String password) {
         // Validate email and password

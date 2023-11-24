@@ -136,6 +136,7 @@ public class EditProfileFragment extends Fragment {
         String updatedPhoneNumber = phoneNumberEditText.getText().toString();
         String selectedDateOfBirth = dateOfBirthButton.getText().toString();
         String selectedGender = genderSpinner.getSelectedItem().toString();
+        String role = "patient";
 
         if (updatedName.isEmpty() || updatedPhoneNumber.isEmpty() || selectedDateOfBirth.isEmpty() || selectedGender.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill in all the details", Toast.LENGTH_SHORT).show();
@@ -154,7 +155,7 @@ public class EditProfileFragment extends Fragment {
                                 @Override
                                 public void onSuccess(Uri downloadUri) {
                                     String imageUrl = downloadUri.toString();
-                                    User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, imageUrl);
+                                    User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, imageUrl, role);
 
                                     userRef.setValue(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -189,7 +190,7 @@ public class EditProfileFragment extends Fragment {
             // If no image is selected, use a default image URL
             String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/book-my-doctor-db7a3.appspot.com/o/profile_images%2FIQEHbVJCHhMkKTsyw6XUeWJE9Wi2.jpg?alt=media&token=5603f4b6-7417-45c4-922a-e85099803633"; // Replace with your default image URL
 
-            User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, defaultImageUrl);
+            User user = new User(updatedName, updatedPhoneNumber, selectedDateOfBirth, selectedGender, defaultImageUrl, role);
 
             userRef.setValue(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -245,3 +246,4 @@ public class EditProfileFragment extends Fragment {
         });
     }
 }
+

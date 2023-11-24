@@ -60,7 +60,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             hospitalImage = itemView.findViewById(R.id.hospita_image);
-            hospitalName = itemView.findViewById(R.id.hospital_name);
+            hospitalName = itemView.findViewById(R.id.doctor_name);
             hospitalAddress = itemView.findViewById(R.id.hospital_addres);
         }
     }

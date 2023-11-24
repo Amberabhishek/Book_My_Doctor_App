@@ -1,20 +1,22 @@
 package com.amber.bookmydoctor.AllActivity.DoctorAllActivity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.amber.bookmydoctor.AllActivity.LoginPageActivity;
 import com.amber.bookmydoctor.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +30,13 @@ public class DoctorRegisterPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_register_page);
 
         mAuth = FirebaseAuth.getInstance();
+
+        // Check if the user is already logged in
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            // User is already logged in, open Doctor Dashboard Activity
+            openDoctorDashboard();
+        }
 
         MaterialButton createAccountBtn = findViewById(R.id.create_account_btn);
         EditText emailEditText = findViewById(R.id.email_edit_text);
@@ -61,7 +70,7 @@ public class DoctorRegisterPageActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             setUserRole("doctor");
-                            startActivity(new Intent(DoctorRegisterPageActivity.this, DoctorLoginPageActivity.class));
+                            openDoctorDashboard();
                             finish();
                         } else {
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Registration failed. Please try again.";
@@ -69,6 +78,11 @@ public class DoctorRegisterPageActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void openDoctorDashboard() {
+        startActivity(new Intent(DoctorRegisterPageActivity.this, DoctorLoginPageActivity.class));
+        finish();
     }
 
     private void setUserRole(String role) {

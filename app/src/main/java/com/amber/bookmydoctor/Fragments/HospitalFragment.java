@@ -23,7 +23,7 @@ public class HospitalFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hospital, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_hospital_recyclerview, container, false);
 
         recyclerView = rootView.findViewById(R.id.idRVCourse);
 

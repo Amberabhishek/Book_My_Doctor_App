@@ -1,4 +1,4 @@
-package com.amber.bookmydoctor.AllActivity;
+package com.amber.bookmydoctor.AllActivity.DoctorAllActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,12 +23,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.amber.bookmydoctor.AllActivity.GetStartedActivity;
 import com.amber.bookmydoctor.DoctorFragment.DoctorAppointmentFragment;
 import com.amber.bookmydoctor.DoctorFragment.DoctorHomeFragment;
 import com.amber.bookmydoctor.DoctorFragment.DoctorHospitalFragment;
 import com.amber.bookmydoctor.DoctorFragment.DoctorProfileFragment;
 import com.amber.bookmydoctor.DoctorFragment.DoctorShopFragment;
-import com.amber.bookmydoctor.Fragments.HomeFragment;
 import com.amber.bookmydoctor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -78,16 +76,14 @@ public class DoctorDashActivity extends AppCompatActivity {
         FirebaseUser currentDoctor = FirebaseAuth.getInstance().getCurrentUser();
         if (currentDoctor != null) {
             String doctorId = currentDoctor.getUid();
-            DatabaseReference doctorRef = FirebaseDatabase.getInstance().getReference().child("doctors").child(doctorId);
+            DatabaseReference doctorRef = FirebaseDatabase.getInstance().getReference().child("doctor").child(doctorId);
 
             doctorRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        doctorName = dataSnapshot.child("name").getValue(String.class);
+                        String doctorName = dataSnapshot.child("name").getValue(String.class);
                         String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
-
-                        // Fetch email from Firebase Authentication
                         String doctorEmail = currentDoctor.getEmail();
 
                         // Update UI with the retrieved data
@@ -108,23 +104,26 @@ public class DoctorDashActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
                 // Update the UI with the retrieved doctor data
-                TextView navDoctorNameTextView = findViewById(R.id.nav_share);  // Corrected ID
-                if (navDoctorNameTextView != null) {
-                    navDoctorNameTextView.setText(doctorName);
+                TextView navUserNameTextView = findViewById(R.id.nav_user_name);
+                if (navUserNameTextView != null) {
+                    navUserNameTextView.setText(doctorName);
                 }
-                ImageView navDoctorProfileImageView = findViewById(R.id.nav_share);  // Corrected ID
+
+                ImageView navDoctorProfileImageView = topNavigationView.getHeaderView(0).findViewById(R.id.nav_profile_image);
                 // Load the doctor image into the ImageView using a library like Picasso or Glide
                 // Example using Picasso:
                 Picasso.get().load(imageUrl).placeholder(R.drawable.ic_person_icon).into(navDoctorProfileImageView);
 
-                // Update doctor email
-                TextView navDoctorEmailTextView = findViewById(R.id.nav_share);  // Corrected ID
-                navDoctorEmailTextView.setText(doctorEmail);
+                // Update user email
+                TextView navUserEmailTextView = findViewById(R.id.nav_user_email);
+                if (navUserEmailTextView != null) {
+                    navUserEmailTextView.setText(doctorEmail);
+                }
             }
         });
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -321,7 +320,7 @@ public class DoctorDashActivity extends AppCompatActivity {
     }
 
     private void logoutDoctor() {
-        SharedPreferences sharedPref = getSharedPreferences("login_status", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("doctor_login_status", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("isLoggedIn", false);
         editor.apply();

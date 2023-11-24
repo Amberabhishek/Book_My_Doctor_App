@@ -7,18 +7,20 @@ public class User {
     private String gender;
     private String imageUrl; // New field for storing the image URL
 
+    private String role;
     // Default constructor
     public User() {
         // Default constructor required for Firebase
     }
 
     // Parameterized constructor
-    public User(String name, String phoneNumber, String dateOfBirth, String gender, String imageUrl) {
+    public User(String name, String phoneNumber, String dateOfBirth, String gender, String imageUrl, String role) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.imageUrl = imageUrl;
+        this.role = role;
     }
 
     // Getter for name
@@ -70,4 +72,16 @@ public class User {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+
+    // Getter for imageUrl
+    public String getRole() {
+        return role;
+    }
+
+    // Setter for imageUrl
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }
