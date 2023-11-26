@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/dr_image"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -31,7 +31,7 @@
                 android:layout_marginBottom="10dp"
                 android:contentDescription="@string/app_name"
                 android:padding="5dp"
-                android:elevation="8dp"
+                android:elevation="2dp"
                 android:src="@drawable/ic_person_icon" />
 
             <LinearLayout

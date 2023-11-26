@@ -4,15 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.amber.bookmydoctor.AllActivity.DoctorAllActivity.DoctorDashActivity;
 
+import com.amber.bookmydoctor.LoadingAnimationActivity;
 import com.amber.bookmydoctor.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,25 +32,37 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        SharedPreferences sharedPref1 = getSharedPreferences("first_run", Context.MODE_PRIVATE);// FirstRun
+        boolean isFirstRun = sharedPref1.getBoolean("isFirstRun", true);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
+
             // User is already logged in
+            showLoadingPage();
 
             getUserRoleFromDatabase(user.getUid());
+            finish();
         } else {
             // User is not logged in, go to the GetStartedActivity
+            if (! isFirstRun)
             navigateToGetStartedActivity();
+            else {
+                SharedPreferences sharedPref = getSharedPreferences("first_run", Context.MODE_PRIVATE);//FirstRun
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isFirstRun", false);
+                editor.commit();
+
+            }
+
         }
 
         Button getStartedButton = findViewById(R.id.button_getstarted);
@@ -56,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 navigateToGetStartedActivity();
             }
         });
+    }
+
+    private void showLoadingPage() {
+        Intent loadingIntent = new Intent(this, LoadingAnimationActivity.class);
+        startActivity(loadingIntent);
+
     }
 
 
@@ -164,11 +187,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToActivity(String role) {
         // Navigate to the corresponding activity based on the role
-        if ("patient".equals(role)) {
+        if ("patient".equals(role) && isNetworkAvailable()) {
             Intent intent = new Intent(this, DashPageActivity.class);
             startActivity(intent);
             finish();
-        } else if ("doctor".equals(role)) {
+        } else if ("doctor".equals(role) && isNetworkAvailable()) {
             Intent intent = new Intent(this, DoctorDashActivity.class);
             startActivity(intent);
             finish();
@@ -182,5 +205,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GetStartedActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
+        }
+        return false;
     }
 }
