@@ -26,7 +26,6 @@
             app:menu="@menu/toolbar_item"/>
 
 
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
@@ -59,6 +58,19 @@
             android:background="@drawable/chats"
             app:elevation="6dp"
             android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/notification_count"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle_background_notification"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:text="0" />
 
 
     </RelativeLayout>

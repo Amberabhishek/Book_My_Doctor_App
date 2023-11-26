@@ -1,16 +1,18 @@
 package com.amber.bookmydoctor.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amber.bookmydoctor.Doctor;
-import com.amber.bookmydoctor.DoctorAdapter;
+import com.amber.bookmydoctor.DoctorListAdapter;
 import com.amber.bookmydoctor.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,11 +26,11 @@ import java.util.List;
 public class AppointmentFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private DoctorAdapter doctorAdapter;
+    private DoctorListAdapter doctorAdapter;
     private List<Doctor> doctors;
 
     public AppointmentFragment() {
-        // Require an empty public constructor
+        // Required empty public constructor
     }
 
     @Override
@@ -39,19 +41,25 @@ public class AppointmentFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         doctors = new ArrayList<>();
-        doctorAdapter = new DoctorAdapter(getContext(), doctors);
+        doctorAdapter = new DoctorListAdapter(getContext(), doctors);
         recyclerView.setAdapter(doctorAdapter);
 
         // Retrieve data from Firebase Realtime Database and update the adapter
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("doctor");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                doctors.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Doctor doctor = dataSnapshot.getValue(Doctor.class);
-                    doctors.add(doctor);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Clear previous data
+                doctors.clear();  // Change to 'doctors' instead of 'patientList'
+
+                // Iterate through the data and add to the list
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Doctor doctor = snapshot.getValue(Doctor.class);  // Change to 'Doctor' instead of 'PatientModel'
+                    Log.d("DoctorData", "Name: " + doctor.getName());  // Add log statements for other fields
+                    doctors.add(doctor);  // Change to 'doctors' instead of 'patientList'
                 }
+
+                // Notify the adapter that the data set has changed
                 doctorAdapter.notifyDataSetChanged();
             }
 
@@ -62,7 +70,5 @@ public class AppointmentFragment extends Fragment {
         });
 
         return view;
-
     }
 }
-

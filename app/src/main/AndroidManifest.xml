@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
         <activity
+            android:name=".AllActivity.DoctorAllActivity.PatientAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".AllActivity.DoctorAllActivity.DoctorRegisterPageActivity"
             android:exported="false" />
         <activity
