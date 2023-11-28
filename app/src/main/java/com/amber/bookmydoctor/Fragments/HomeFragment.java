@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.amber.bookmydoctor.AllActivity.BloodBankAllActivity.BloodRedButtonActivity;
 import com.amber.bookmydoctor.AllActivity.CardActivity;
 import com.amber.bookmydoctor.AllActivity.LabTestsAllActivity.LabTestActivity;
-import com.amber.bookmydoctor.AllActivity.MedicineActivity;
+import com.amber.bookmydoctor.AllActivity.MedicinesActivity.MedicineActivity;
 import com.amber.bookmydoctor.R;
 
 
@@ -47,4 +47,6 @@ public class HomeFragment extends Fragment {
             });
         }
     }
+
+
 }

@@ -55,7 +55,7 @@ public class AppointmentFragment extends Fragment {
                 // Iterate through the data and add to the list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Doctor doctor = snapshot.getValue(Doctor.class);  // Change to 'Doctor' instead of 'PatientModel'
-                    Log.d("DoctorData", "Name: " + doctor.getName());  // Add log statements for other fields
+                    Log.d("DoctorData", "Id: " + doctor.getDid());  // Add log statements for other fields
                     doctors.add(doctor);  // Change to 'doctors' instead of 'patientList'
                 }
 

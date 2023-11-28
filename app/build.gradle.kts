@@ -49,6 +49,7 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
 
 
+
     implementation ("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation ("com.google.android.libraries.places:places:3.3.0")
@@ -59,6 +60,8 @@ dependencies {
 
     implementation ("com.airbnb.android:lottie:5.2.0")//animaton_lottie
 
+
+    implementation ("com.google.firebase:firebase-messaging:23.3.1")//messaging
 
     implementation ("com.sun.mail:android-mail:1.6.5")//email otp
     implementation ("com.sun.mail:android-activation:1.6.5")

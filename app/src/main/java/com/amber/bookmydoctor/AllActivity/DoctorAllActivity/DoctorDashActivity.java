@@ -40,6 +40,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 public class DoctorDashActivity extends AppCompatActivity {
@@ -159,7 +160,7 @@ public class DoctorDashActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.nav_appoint) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
                     transaction.replace(R.id.doctor_fragment_container, doctorAppointmentFragment);
-                    fragmentTitle = "Appointments";
+                    fragmentTitle = "Upcoming Appointments";
                     currentFragment = doctorAppointmentFragment;
                 } else if (item.getItemId() == R.id.nav_hospital) {
                     transaction.setCustomAnimations(R.anim.press_anim, R.anim.back_anim);
@@ -185,6 +186,8 @@ public class DoctorDashActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -327,4 +330,5 @@ public class DoctorDashActivity extends AppCompatActivity {
 
         FirebaseAuth.getInstance().signOut();
     }
+
 }

@@ -5,5 +5,13 @@
         <item name="colorPrimary">#01B5A4</item>
     </style>
 
+
+    <style name="RedButtonStyle">
+        <item name="android:background">@drawable/round_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <!-- Add any other attributes you want to customize -->
+    </style>
+
+
     <style name="Theme.BookMyDoctor" parent="Base.Theme.BookMyDoctor" />
 </resources>

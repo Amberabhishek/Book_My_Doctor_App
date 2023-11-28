@@ -58,7 +58,7 @@
         <activity android:name=".AllActivity.CardActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodRedButtonActivity" />
         <activity android:name=".AllActivity.LabTestsAllActivity.LabTestActivity" />
-        <activity android:name=".AllActivity.MedicineActivity" />
+        <activity android:name=".AllActivity.MedicinesActivity.MedicineActivity" />
         <activity android:name=".AllActivity.BloodBankAllActivity.BloodFormPageActivity" />
         <activity android:name=".AllActivity.GmailPageActivity" />
         <activity android:name=".AllActivity.EmailVerificationActivity" />
@@ -69,6 +69,7 @@
         <activity android:name=".AllActivity.DoctorAllActivity.DoctorDetailsForm" />
         <activity android:name=".AllActivity.PatientBookingActivity.ApointmentBookingActivity" />
         <activity android:name=".LoadingAnimationActivity" />
+        <activity android:name=".AllActivity.MedicinesActivity.ShopActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -82,6 +83,8 @@
                 <action android:name = "android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+
 
 
     </application>

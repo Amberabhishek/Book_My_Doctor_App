@@ -1,13 +1,17 @@
 package com.amber.bookmydoctor.AllActivity.DoctorAllActivity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amber.bookmydoctor.R;
@@ -32,6 +36,17 @@ public class DoctorLoginPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_login_page);
 
         mAuth = FirebaseAuth.getInstance();
+
+
+        TextView forgotPasswordTextView = findViewById(R.id.forgot_password);
+        forgotPasswordTextView.setText(Html.fromHtml("<u>I forgot my password</u>"));
+        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showForgotPasswordDialog();
+            }
+        });
+
 
         ImageView loginButton = findViewById(R.id.login_button);
         EditText emailEditText = findViewById(R.id.email_edit_text);
@@ -62,6 +77,53 @@ public class DoctorLoginPageActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+    private void showForgotPasswordDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Forgot Password");
+        builder.setMessage("Enter your email:");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String email = input.getText().toString();
+                sendOtpByEmail(email);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void sendOtpByEmail(String email) {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // Password reset email sent successfully
+                            Toast.makeText(DoctorLoginPageActivity.this, "OTP sent to your email.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If the email address is not registered or other issues
+                            Toast.makeText(DoctorLoginPageActivity.this, "Failed to send OTP. Check your email address.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
 
     private void loginUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
