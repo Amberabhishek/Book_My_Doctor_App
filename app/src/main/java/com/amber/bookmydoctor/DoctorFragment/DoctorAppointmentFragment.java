@@ -29,7 +29,7 @@ public class DoctorAppointmentFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private PatientAdapter patientAdapter;
-    private List<PatientDetails> patientList;
+    public List<PatientDetails> patientList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

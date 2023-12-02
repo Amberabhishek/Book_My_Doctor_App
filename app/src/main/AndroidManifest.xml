@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
+        <activity
+            android:name=".AllActivity.MedicinesActivity.MedicinesAllCategoryActivity"
+            android:exported="false" />
         <activity
             android:name=".AllActivity.DoctorAllActivity.PatientAppointmentActivity"
             android:exported="false" />
@@ -69,24 +72,21 @@
         <activity android:name=".AllActivity.DoctorAllActivity.DoctorDetailsForm" />
         <activity android:name=".AllActivity.PatientBookingActivity.ApointmentBookingActivity" />
         <activity android:name=".LoadingAnimationActivity" />
-        <activity android:name=".AllActivity.MedicinesActivity.ShopActivity" />
+        <activity android:name=".AllActivity.MedicinesActivity.ShopListActivity" />
+        <activity android:name=".AllActivity.MedicinesActivity.MedicinesHelpCenter" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD4rrS_p4XTi8u5MKro7o9TByVcMJBsP6Y" />
 
-
-        <receiver android:name = "MyReceiver"
+        <receiver
+            android:name=".MyReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name = "android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name = "android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-
-
-
-
     </application>
 
 </manifest>

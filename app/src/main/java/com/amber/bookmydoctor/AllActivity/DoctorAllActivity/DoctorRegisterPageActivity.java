@@ -87,7 +87,7 @@ public class DoctorRegisterPageActivity extends AppCompatActivity {
 
     private void setUserRole(String role) {
         String userId = mAuth.getCurrentUser().getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("doctor").child(userId);
         databaseReference.child("role").setValue(role);
     }
 

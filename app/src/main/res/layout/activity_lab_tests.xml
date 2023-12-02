@@ -327,14 +327,14 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Covid 19"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -352,15 +352,16 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Vitamin"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                     </LinearLayout>
 
@@ -377,19 +378,21 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Blood Tests"
+                            android:gravity="center"
+                            android:layout_margin="1dp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/urine"
@@ -402,14 +405,16 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Urine Tests"
+                            android:layout_margin="3dp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -427,14 +432,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Heart"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -452,14 +458,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Joint"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -477,14 +484,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Infections"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -502,14 +510,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Allergy"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -527,14 +536,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Anemia"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -552,14 +562,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Hormone"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -578,14 +589,15 @@
                     android:background="#FFEB3B">
 
                     <LinearLayout
-                        android:gravity="center"
+
                         android:layout_width="75dp"
                         android:layout_height="75dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:text="Hepatitie"
+                            android:gravity="center"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
