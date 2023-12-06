@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
         <activity
+            android:name=".ProfilePagesCards.MyAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".AllActivity.MedicinesActivity.MedicinesAllCategoryActivity"
             android:exported="false" />
         <activity

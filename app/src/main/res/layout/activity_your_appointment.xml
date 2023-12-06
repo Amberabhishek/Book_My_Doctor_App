@@ -1,0 +1,90 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="10dp"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical"
+    tools:context=".ProfilePagesCards.MyAppointmentActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Blood Group -->
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient name"
+            android:textSize="18sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#F44336"
+            android:textStyle="bold" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_below="@id/nameTextView"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp" />
+
+        <!-- Age -->
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_below="@id/emailTextView"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp" />
+
+        <!-- Gender -->
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_below="@id/dateTextView"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time slot"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp"
+            />
+
+        <!-- Phone Number -->
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_below="@id/timeTextView"
+            android:layout_marginTop="8dp"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="Phone: +1234567890"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/deletIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_delete_icon"
+            android:linksClickable="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20sp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

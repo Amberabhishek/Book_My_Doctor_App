@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "675953248938",
-    "project_id": "book-my-doctor-db7a3",
-    "storage_bucket": "book-my-doctor-db7a3.appspot.com"
+    "project_number": "180348906315",
+    "firebase_url": "https://bookmydoctorapp-66a01-default-rtdb.firebaseio.com",
+    "project_id": "bookmydoctorapp-66a01",
+    "storage_bucket": "bookmydoctorapp-66a01.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:675953248938:android:f7d44c52aceb4992ed5ed3",
+        "mobilesdk_app_id": "1:180348906315:android:26f89835f11bbad5a916ce",
         "android_client_info": {
           "package_name": "com.amber.bookmydoctor"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyATf6PizQu5CHLFc5ObkI1_DE8HiGE-Jfk"
+          "current_key": "AIzaSyDS58c9qPWX12uQYGqiogE2Jr94m0mWQ7s"
         }
       ],
       "services": {

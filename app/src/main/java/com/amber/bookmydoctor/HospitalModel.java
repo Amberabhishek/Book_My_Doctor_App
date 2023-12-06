@@ -10,7 +10,6 @@ public class HospitalModel {
 
         this.name = name;
         this.address = address;
-
         this.imageUrl = imageUrl;
     }
 

@@ -32,6 +32,7 @@ import com.amber.bookmydoctor.Fragments.AppointmentFragment;
 import com.amber.bookmydoctor.Fragments.HomeFragment;
 import com.amber.bookmydoctor.Fragments.ProfileFragment;
 import com.amber.bookmydoctor.Fragments.ShopFragment;
+import com.amber.bookmydoctor.ProfilePagesCards.MyAppointmentActivity;
 import com.amber.bookmydoctor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -220,6 +221,10 @@ public class DashPageActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     logoutUser();
+                } else if (itemId == R.id.nav_appointment) {
+                    // Open the new activity for "My Appointment"
+                    Intent appointmentIntent = new Intent(DashPageActivity.this, MyAppointmentActivity.class);
+                    startActivity(appointmentIntent);
                 }
 
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

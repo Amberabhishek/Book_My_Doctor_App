@@ -13,10 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.amber.bookmydoctor.AllActivity.GetStartedActivity;
-import com.amber.bookmydoctor.AllActivity.LoginPageActivity;
-import com.amber.bookmydoctor.ProfilePagesCards.EditPrescriptionActivity;
 import com.amber.bookmydoctor.ProfilePagesCards.EditProfileFragment;
 import com.amber.bookmydoctor.ProfilePagesCards.HealthTipsActivity;
+import com.amber.bookmydoctor.ProfilePagesCards.MyAppointmentActivity;
 import com.amber.bookmydoctor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import android.net.Uri;
@@ -51,7 +50,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Create an Intent to navigate to the EditPrescriptionActivity
-                Intent intent = new Intent(getActivity(), EditPrescriptionActivity.class);
+                Intent intent = new Intent(getActivity(), MyAppointmentActivity.class);
                 startActivity(intent);
             }
         });

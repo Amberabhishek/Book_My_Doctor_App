@@ -107,7 +107,7 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="70dp"
                     android:drawableRight="@drawable/ic_right_arrow"
-                    android:text="Upload Prescription"
+                    android:text="My Appointment"
                     android:textSize="18sp"
                     android:gravity="center_vertical"/>
 
