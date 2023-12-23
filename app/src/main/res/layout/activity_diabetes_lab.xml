@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2E6FB"
+    tools:context=".AllActivity.LabTestsAllActivity.DiabetesLabActivity">
+
+
+    <LinearLayout
+        android:id="@+id/img5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Image View -->
+        <ImageView
+            android:id="@+id/yourImageViewId"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/img_36"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"/>
+
+        <!-- Spacer to push the Button to the bottom -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="12dp"
+            app:cardCornerRadius="5dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:textSize="18sp"
+                android:text="The treatment of diabetes involves managing blood glucose levels to keep them within a target range. The primary goals of diabetes treatment include.
+
+\nLifestyle Changes:
+
+: Follow a balanced and nutritious diet. LiHealthy Eatingmit the intake of refined carbohydrates and sugars.
+Regular Exercise: Engage in regular physical activity as it can help improve insulin sensitivity and control blood sugar levels.
+"/>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button at the bottom -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Book Your Test"
+            android:backgroundTint="#2D3C8E"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Book Your Test"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</RelativeLayout>

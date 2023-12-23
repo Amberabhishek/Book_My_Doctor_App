@@ -40,19 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
-        // Find the "Phone" button ImageView by its ID
-        ImageView phoneButton = findViewById(R.id.button_phone);
-
-        // Set an OnClickListener on the "Phone" button
-        phoneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an Intent to navigate to the next activity
-                Intent intent = new Intent(RegisterActivity.this, PhonePageActivity.class);
-                // Start the next activity
-                startActivity(intent);
-            }
-        });
 
         // Google work//
         googleBtn = findViewById(R.id.google_btn);
@@ -137,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> emailVerificationTask) {
                                     if (emailVerificationTask.isSuccessful()) {
                                         Toast.makeText(RegisterActivity.this, "A verification email has been sent to your email address.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(RegisterActivity.this, EmailVerificationActivity.class);
+                                        Intent intent = new Intent(RegisterActivity.this, LoginPageActivity.class);
                                         intent.putExtra("email",email);
                                         intent.putExtra("password", password);
                                         startActivity(intent);

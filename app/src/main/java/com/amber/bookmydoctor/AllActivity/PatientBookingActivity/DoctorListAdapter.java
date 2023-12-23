@@ -1,4 +1,4 @@
-package com.amber.bookmydoctor;
+package com.amber.bookmydoctor.AllActivity.PatientBookingActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amber.bookmydoctor.AllActivity.PatientBookingActivity.ApointmentBookingActivity;
+import com.amber.bookmydoctor.Doctor;
+import com.amber.bookmydoctor.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

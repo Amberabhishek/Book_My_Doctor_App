@@ -43,7 +43,7 @@ public class LocationClient {
         this.hospitalFragment = hospitalFragment;
         this.adapter = adapter; // Set the adapter
         hospitalModelArrayList = new ArrayList<>(); // Initialize the ArrayList
-        Places.initialize(hospitalFragment, "AIzaSyD4rrS_p4XTi8u5MKro7o9TByVcMJBsP6Y"); // Replace with your API key
+        Places.initialize(hospitalFragment, "AIzaSyD4rrS_p4XTi8u5MKro7o9TByVcMJBsP6"); // Replace with your API key
         placesClient = Places.createClient(hospitalFragment);
     }
 

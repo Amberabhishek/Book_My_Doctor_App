@@ -37,8 +37,50 @@ public class MedicineActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Open the new activity when the CardView is clicked
-                Intent intent = new Intent(MedicineActivity.this, ShopListActivity.class);
+                Intent intent = new Intent(MedicineActivity.this, MedicinesAllCategoryActivity.class);
                 startActivity(intent);
             }
         });
+
+
+        CardView cardView = findViewById(R.id.cardView1); // Corrected ID
+
+        // Set a click listener on the CardView
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open the new activity when the CardView is clicked
+                Intent intent = new Intent(MedicineActivity.this, MedicineSkinActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        cardView = findViewById(R.id.cardView2);
+
+        // Set a click listener on the CardView
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open the new activity when the CardView is clicked
+                Intent intent = new Intent(MedicineActivity.this, MedicineVitaminActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        // Find the RelativeLayout by its ID
+        relativeLayout = findViewById(R.id.relativeLayouts);
+
+        // Set an OnClickListener to the RelativeLayout
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an Intent to start the new activity
+                Intent intent = new Intent(MedicineActivity.this, MedicineCatagoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }}

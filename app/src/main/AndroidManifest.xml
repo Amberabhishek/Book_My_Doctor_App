@@ -19,7 +19,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctor">
         <activity
-            android:name=".ProfilePagesCards.MyAppointmentActivity"
+            android:name=".AllActivity.LabTestsAllActivity.FeverLabActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.LabTestsAllActivity.DiabetesLabActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesList.VitaminMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesActivity.MedicineVitaminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesActivity.MedicineSkinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesList.SkinMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesList.CovidMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MedicinesActivity.MedicineCatagoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.LabTestsAllActivity.CancerLabTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllActivity.MyAppointment.MyAppointmentActivity"
             android:exported="false" />
         <activity
             android:name=".AllActivity.MedicinesActivity.MedicinesAllCategoryActivity"

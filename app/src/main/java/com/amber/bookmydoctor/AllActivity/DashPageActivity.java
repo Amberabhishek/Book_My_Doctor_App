@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -32,10 +31,9 @@ import com.amber.bookmydoctor.Fragments.AppointmentFragment;
 import com.amber.bookmydoctor.Fragments.HomeFragment;
 import com.amber.bookmydoctor.Fragments.ProfileFragment;
 import com.amber.bookmydoctor.Fragments.ShopFragment;
-import com.amber.bookmydoctor.ProfilePagesCards.MyAppointmentActivity;
+import com.amber.bookmydoctor.AllActivity.MyAppointment.MyAppointmentActivity;
 import com.amber.bookmydoctor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -193,7 +191,7 @@ public class DashPageActivity extends AppCompatActivity {
         fabCallAmbulance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String ambulanceNumber = "123"; // Replace with the actual ambulance number
+                String ambulanceNumber = "102"; // Replace with the actual ambulance number
                 Uri phoneUri = Uri.parse("tel:" + ambulanceNumber);
                 Intent dialIntent = new Intent(Intent.ACTION_DIAL, phoneUri);
                 startActivity(dialIntent);

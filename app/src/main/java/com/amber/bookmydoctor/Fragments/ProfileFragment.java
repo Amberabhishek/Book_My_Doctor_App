@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.amber.bookmydoctor.AllActivity.GetStartedActivity;
 import com.amber.bookmydoctor.ProfilePagesCards.EditProfileFragment;
 import com.amber.bookmydoctor.ProfilePagesCards.HealthTipsActivity;
-import com.amber.bookmydoctor.ProfilePagesCards.MyAppointmentActivity;
+import com.amber.bookmydoctor.AllActivity.MyAppointment.MyAppointmentActivity;
 import com.amber.bookmydoctor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import android.net.Uri;

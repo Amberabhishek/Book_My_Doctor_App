@@ -41,7 +41,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="118dp"
             app:cardCornerRadius="5dp"
             android:elevation="12dp"
             android:layout_marginTop="13dp"
@@ -54,13 +54,13 @@
                 android:layout_height="130dp"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/grid_color"
+                android:background="@drawable/img_28"
                 android:orientation="horizontal" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="118dp"
             app:cardCornerRadius="5dp"
             android:elevation="12dp"
             android:layout_marginTop="16dp"
@@ -73,13 +73,13 @@
                 android:layout_height="130dp"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/grid_color"
+                android:background="@drawable/img_29"
                 android:orientation="horizontal" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="118dp"
             app:cardCornerRadius="5dp"
             android:elevation="12dp"
             android:layout_marginTop="16dp"
@@ -92,13 +92,13 @@
                 android:layout_height="130dp"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/grid_color"
+                android:background="@drawable/img_30"
                 android:orientation="horizontal" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="118dp"
             app:cardCornerRadius="5dp"
             android:elevation="12dp"
             android:layout_marginTop="16dp"
@@ -111,13 +111,13 @@
                 android:layout_height="130dp"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/grid_color"
+                android:background="@drawable/img_31"
                 android:orientation="horizontal" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="118dp"
             app:cardCornerRadius="5dp"
             android:elevation="12dp"
             android:layout_marginTop="16dp"
@@ -130,7 +130,7 @@
                 android:layout_height="130dp"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/grid_color"
+                android:background="@drawable/img_32"
                 android:orientation="horizontal" />
         </androidx.cardview.widget.CardView>
 
@@ -164,6 +164,7 @@
 
         <!-- CardView 1 -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cancer"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -185,6 +186,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/diabetes"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -206,6 +208,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/fever"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -304,6 +307,7 @@
 
 
         <HorizontalScrollView
+            android:id="@+id/horiz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/second_card"
@@ -607,6 +611,15 @@
 
             </LinearLayout>
         </HorizontalScrollView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_below="@+id/horiz"
+            android:src="@drawable/img_33"/>
 
     </RelativeLayout>
 

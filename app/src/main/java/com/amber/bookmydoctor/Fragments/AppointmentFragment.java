@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amber.bookmydoctor.Doctor;
-import com.amber.bookmydoctor.DoctorListAdapter;
+import com.amber.bookmydoctor.AllActivity.PatientBookingActivity.DoctorListAdapter;
 import com.amber.bookmydoctor.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

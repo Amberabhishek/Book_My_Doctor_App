@@ -7,18 +7,20 @@ public class BookingDetails {
     private String selectedDate;
     private String selectedTimeSlot;
     private  String did;
+    private  String pid;
 
     // Default constructor required for Firebase
     public BookingDetails() {
     }
 
-    public BookingDetails(String userName, String userEmail, String userPhone, String selectedDate, String selectedTimeSlot, String did) {
+    public BookingDetails(String userName, String userEmail, String userPhone, String selectedDate, String selectedTimeSlot, String did, String pid) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
         this.selectedDate = selectedDate;
         this.selectedTimeSlot = selectedTimeSlot;
         this.did = did;
+        this.pid = pid;
     }
 
     // Add getters and setters for each field
@@ -65,6 +67,14 @@ public class BookingDetails {
 
     public String getDid() {
         return did;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    public String getPid() {
+        return pid;
     }
 
     public void setSelectedTimeSlot(String selectedTimeSlot) {

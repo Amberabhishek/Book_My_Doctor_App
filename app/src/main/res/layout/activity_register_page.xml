@@ -123,15 +123,6 @@
             android:src="@drawable/google"
             />
 
-        <ImageView
-            android:id="@+id/button_phone"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/phone"
-            />
-
-
 
     </LinearLayout>
 

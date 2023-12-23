@@ -2,6 +2,9 @@
 
 package com.amber.bookmydoctor.AllActivity.MyAppointment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Appointment {
     private String appointmentId;
     private String selectedDate;
@@ -9,6 +12,7 @@ public class Appointment {
     private String userEmail;
     private String userName;
     private String userPhone;
+    private String pid;
 
     // Default constructor (required for Firebase)
     public Appointment() {
@@ -16,13 +20,14 @@ public class Appointment {
     }
 
     // Parameterized constructor
-    public Appointment(String appointmentId, String selectedDate, String selectedTimeSlot, String userEmail, String userName, String userPhone) {
+    public Appointment(String appointmentId, String selectedDate, String selectedTimeSlot, String userEmail, String userName, String userPhone, String pid) {
         this.appointmentId = appointmentId;
         this.selectedDate = selectedDate;
         this.selectedTimeSlot = selectedTimeSlot;
         this.userEmail = userEmail;
         this.userName = userName;
         this.userPhone = userPhone;
+        this.pid = pid;
     }
 
     // Getters and setters for other fields...
@@ -74,4 +79,13 @@ public class Appointment {
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
 }

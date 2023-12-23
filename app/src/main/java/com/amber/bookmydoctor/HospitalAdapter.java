@@ -38,7 +38,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
 
 
         // Set the hospital image using Glide
-        Glide.with(context).load(model.getImageUrl()).into(holder.hospitalImage);
+
     }
 
     @Override
@@ -53,13 +53,13 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView hospitalImage;
+
         private final TextView hospitalName;
         private final TextView hospitalAddress;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            hospitalImage = itemView.findViewById(R.id.hospita_image);
+
             hospitalName = itemView.findViewById(R.id.doctor_name);
             hospitalAddress = itemView.findViewById(R.id.hospital_addres);
         }

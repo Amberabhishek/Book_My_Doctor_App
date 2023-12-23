@@ -18,7 +18,9 @@ import android.widget.DatePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.amber.bookmydoctor.ProfilePagesCards.MyAppointmentActivity;
+import com.amber.bookmydoctor.AllActivity.MyAppointment.MyAppointmentActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.amber.bookmydoctor.R;
@@ -30,6 +32,8 @@ public class ApointmentBookingActivity extends AppCompatActivity {
     private String selectedDate;
     private DatabaseReference databaseReference;
 
+    private FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +43,24 @@ public class ApointmentBookingActivity extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("patient_booking_details");
 
+
+        // Retrieve the current user from Firebase Authentication
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Check if the user is authenticated
+        if (user == null) {
+            // Handle the case when the user is not authenticated
+            // You might want to redirect to the login page or take appropriate action
+            return;
+        }
+        
+
         // Retrieve specific data from the Intent
         String doctorName = getIntent().getStringExtra("doctorName");
         String doctorImage = getIntent().getStringExtra("doctorImage");
         String doctorType = getIntent().getStringExtra("doctorType");
         String doctorId = getIntent().getStringExtra("doctorID");
+        String patientId = user.getUid();
 
         // Display the doctor's data in your UI elements
         TextView doctorNameTextView = findViewById(R.id.dr_name);
@@ -125,7 +142,7 @@ public class ApointmentBookingActivity extends AppCompatActivity {
             }
 
             if (selectedDate != null && selectedTimeSlotButton != null) {
-                BookingDetails bookingDetails = new BookingDetails(userName, userEmail, userPhone, selectedDate, selectedTimeSlotButton.getText().toString(), doctorId);
+                BookingDetails bookingDetails = new BookingDetails(userName, userEmail, userPhone, selectedDate, selectedTimeSlotButton.getText().toString(), doctorId, patientId);
                 String bookingKey = databaseReference.push().getKey();
                 databaseReference.child(bookingKey).setValue(bookingDetails);
 

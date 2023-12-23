@@ -195,174 +195,45 @@
 
                         </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/first_card8"
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            app:cardCornerRadius="50dp"
-                            android:elevation="10dp"
-                            android:layout_marginRight="12dp"
-                            android:layout_marginTop="19dp"
-                            android:layout_marginLeft="12dp">
-
-                            <LinearLayout
-                                android:layout_width="75dp"
-                                android:layout_height="75dp">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    />
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-
-
                         <!-- Add more cards as needed -->
 
                     </LinearLayout>
                 </HorizontalScrollView>
 
-                <TextView
+                <View
                     android:id="@+id/upcoming"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
+                    android:layout_height="1dp"
+                    android:background="@color/green"
                     android:layout_marginTop="145dp"
-                    android:text="Upcoming Appointment"
-                    android:textColor="@color/black"
-                    android:textSize="19sp"
-                    android:textStyle="bold" />
+                    />
 
 
                 <LinearLayout
+                    android:id="@+id/lotti"
                     android:layout_width="match_parent"
-                    android:layout_height="145dp"
+                    android:layout_height="305dp"
                     android:layout_below="@+id/upcoming">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card"
+                    <com.airbnb.lottie.LottieAnimationView
                         android:layout_width="match_parent"
-                        android:layout_height="122dp"
-                        app:cardCornerRadius="5dp"
-                        android:elevation="12dp"
-                        android:layout_marginTop="19dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginRight="12dp">
-
-                        <LinearLayout
-                            android:id="@+id/card_image"
-                            android:layout_width="match_parent"
-                            android:layout_height="130dp"
-                            android:layout_marginVertical="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/grid_color">
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_width="65dp"
-                                android:layout_height="65dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginLeft="20dp"
-                                android:src="@drawable/girl" />
-
-                            <TextView
-                                android:id="@+id/doctor_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dr. Neena Singh"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="12dp"
-                                android:layout_marginTop="12dp"
-                                />
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:layout_width="140dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="20dp">
-
-                            <TextView
-                                android:layout_width="120dp"
-                                android:layout_height="50dp"
-                                android:text="Oct 10, 2023"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                android:gravity="center"
-                                android:padding="2dp"
-                                android:layout_marginLeft="20dp"
-                                android:drawableLeft="@drawable/ic_appointment_icon"/>
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="120dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="150dp">
-
-                            <TextView
-                                android:layout_width="120dp"
-                                android:layout_height="50dp"
-                                android:text="05:00 PM"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                android:gravity="center"
-                                android:padding="2dp"
-                                android:layout_marginLeft="20dp"
-                                android:drawableLeft="@drawable/ic_clock_icon"/>
-
-                        </RelativeLayout>
-
-
-                    </androidx.cardview.widget.CardView>
+                        android:layout_height="match_parent"
+                        app:lottie_rawRes="@raw/dash_animation"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"/>
 
                 </LinearLayout>
 
 
 
-                <ViewFlipper
-                    android:id="@+id/flipper"
-                    android:layout_below="@+id/upcoming"
-                    android:layout_marginTop="166dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:flipInterval="3000"
-                    android:autoStart="true"
-                    android:inAnimation="@android:anim/slide_in_left"
-                    android:outAnimation="@android:anim/slide_out_right">
 
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/flip1"/>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/home_page"/>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/boy"/>
-
-                </ViewFlipper>
 
 
                     <LinearLayout
                         android:id="@+id/colm"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
-                        android:layout_below="@+id/flipper"
+                        android:layout_below="@+id/lotti"
                         android:orientation="horizontal"
                         >
 
@@ -465,6 +336,48 @@
                     </LinearLayout>
 
 
+                <ViewFlipper
+                    android:id="@+id/flipper"
+                    android:layout_below="@+id/colm"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:flipInterval="3000"
+                    android:autoStart="true"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_28"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_29"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_30"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_31"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_32"/>
+
+
+
+                </ViewFlipper>
+
+
 
 
 
@@ -472,7 +385,7 @@
                     android:id="@+id/bottom_card2"
                     android:layout_width="match_parent"
                     android:layout_height="145dp"
-                    android:layout_below="@+id/colm">
+                    android:layout_below="@+id/flipper">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/down"

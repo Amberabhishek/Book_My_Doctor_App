@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.amber.bookmydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -44,12 +46,15 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Appointment appointment = appointmentList.get(position);
 
-        holder.dateTextView.setText(appointment.getSelectedDate());
-        holder.timeTextView.setText(appointment.getSelectedTimeSlot());
-        holder.emailTextView.setText(appointment.getUserEmail());
-        holder.nameTextView.setText(appointment.getUserName());
-        holder.phoneTextView.setText(appointment.getUserPhone());
+        // Check if the appointment belongs to the currently logged-in user
+            holder.dateTextView.setText(appointment.getSelectedDate());
+            holder.timeTextView.setText(appointment.getSelectedTimeSlot());
+            holder.emailTextView.setText(appointment.getUserEmail());
+            holder.nameTextView.setText(appointment.getUserName());
+            holder.phoneTextView.setText(appointment.getUserPhone());
+
     }
+
 
     @Override
     public int getItemCount() {

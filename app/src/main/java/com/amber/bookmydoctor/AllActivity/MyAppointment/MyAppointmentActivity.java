@@ -1,6 +1,4 @@
-// YourAppointmentActivity.java
-
-package com.amber.bookmydoctor.ProfilePagesCards;
+package com.amber.bookmydoctor.AllActivity.MyAppointment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;

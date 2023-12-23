@@ -88,6 +88,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_weight="1"
@@ -119,6 +120,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_weight="1"
@@ -362,7 +364,62 @@
 
     </LinearLayout>
 
-        
+
+        <RelativeLayout
+            android:id="@+id/relativeLayouts"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="16dp"
+            android:background="@color/white"
+            >
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_27"
+                />
+
+            <TextView
+                android:id="@+id/doctor_names"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_toEndOf="@id/img1"
+                android:text="Do you want to sell medicines?"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginRight="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/img1"
+                android:text="Uplode your Medicines details!"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@+id/doctor_names"/>
+
+
+            <TextView
+                android:id="@+id/line_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/img1"
+                android:text="Upload"
+                android:textAlignment="center"
+                android:textColor="#03A6EF"
+                android:textSize="18sp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@+id/lines"/>
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
